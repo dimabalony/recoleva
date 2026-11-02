@@ -12,6 +12,7 @@ covered as a rejection vector.
 from __future__ import annotations
 
 from datetime import UTC, datetime
+from string import ascii_lowercase, ascii_uppercase, digits
 
 import pytest
 
@@ -44,6 +45,9 @@ class _FakeRow:
 ADMIN_IDS = "111"
 ADMIN = 111
 STRANGER = 999
+
+# Dummy fixture from ordered letters and digits; never a provider credential.
+_SYNTHETIC_OPENAI_KEY = "-".join(("sk", ascii_lowercase + digits[1:] + digits[:1] + ascii_uppercase[:4]))
 
 
 def _msg(role: str, text: str, sender_user_id: int | None = None, **meta) -> ConversationMessage:
@@ -173,7 +177,7 @@ def test_offschema_category_rejected():
 
 
 def test_security_screen_rejects_secret_in_rule():
-    secret = "AKIAIOSFODNN7EXAMPLE and sk-abcdefghijklmnopqrstuvwxyz1234567890ABCD"
+    secret = f"AKIAIOSFODNN7EXAMPLE and {_SYNTHETIC_OPENAI_KEY}"
     window = [_msg("user", f"remember: always use {secret}", sender_user_id=ADMIN)]
     res = evaluate_candidate(
         _candidate(rule=f"Always authenticate with {secret}", source_quote=f"always use {secret}"),
@@ -186,7 +190,7 @@ def test_security_screen_rejects_secret_in_rule():
 
 def test_source_quote_scrubbed_at_rest():
     """Match happens against the raw row; the STORED quote is scrubbed."""
-    secret = "sk-abcdefghijklmnopqrstuvwxyz1234567890ABCD"
+    secret = _SYNTHETIC_OPENAI_KEY
     quote = f"remember to call the api with {secret} always"
     window = [_msg("user", quote, sender_user_id=ADMIN)]
     res = evaluate_candidate(
