@@ -1,0 +1,12 @@
+graft src
+recursive-include tests *.py *.json
+recursive-include examples *.py *.json
+recursive-include docs *.md *.json
+include README.md EXPORT_PROVENANCE.json pytest.ini requirements-test.txt
+include .github/workflows/test.yml
+global-exclude *.pyc
+
+include LICENSE NOTICE THIRD_PARTY_NOTICES.md BOOTSTRAP_PROVENANCE.json DEPENDENCY_LICENSES.json
+include CONTRIBUTING.md SECURITY.md CHANGELOG.md AGENTS.md
+recursive-include scripts *.py
+recursive-include .github/workflows *.yml

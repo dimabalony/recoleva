@@ -1,0 +1,104 @@
+name: SDK proof
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  installed-wheel:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg15
+        env:
+          POSTGRES_PASSWORD: eval
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Build and unpack source distribution
+        run: |
+          python -m pip install build
+          python -m build --sdist --outdir rehearsal/dist
+          python - <<'PYCODE'
+          import os
+          from pathlib import Path
+          import tarfile
+          archive, = Path("rehearsal/dist").glob("*.tar.gz")
+          with tarfile.open(archive) as source:
+              source.extractall("rehearsal/unpacked", filter="data")
+          root, = Path("rehearsal/unpacked").iterdir()
+          with open(os.environ["GITHUB_ENV"], "a") as env:
+              env.write(f"CANDIDATE_ROOT={root.resolve()}\n")
+          PYCODE
+      - name: Build wheel from unpacked source and install it
+        run: |
+          python -m build --wheel --outdir "$GITHUB_WORKSPACE/rehearsal/dist" "$CANDIDATE_ROOT"
+          python -m pip install rehearsal/dist/*.whl -r "$CANDIDATE_ROOT/requirements-test.txt"
+          mkdir -p rehearsal/reports
+          sha256sum rehearsal/dist/*.whl > rehearsal/reports/wheel-sha256.txt
+          python -I - <<'PYCODE' > rehearsal/reports/installed-location.txt
+          from pathlib import Path
+          import kai_memory
+          location = Path(kai_memory.__file__).resolve()
+          assert "site-packages" in location.parts, location
+          print(location)
+          PYCODE
+      - name: Full portable suite from unpacked source
+        working-directory: ${{ env.CANDIDATE_ROOT }}
+        run: >-
+          python -I -m pytest tests --junitxml="$GITHUB_WORKSPACE/rehearsal/reports/unit.xml"
+      - name: Prepare independent empty databases
+        env:
+          POSTGRES_CONTAINER: ${{ job.services.postgres.id }}
+        run: |
+          for db in lifecycle recovery_retention owner_a owner_b atlas kai storage_upgrade; do
+            docker exec "$POSTGRES_CONTAINER" createdb -U postgres "$db"
+          done
+          docker inspect "$POSTGRES_CONTAINER" > rehearsal/reports/database-image.json
+      - name: Installed-wheel synthetic host, storage upgrade and PostgreSQL contracts
+        working-directory: ${{ env.CANDIDATE_ROOT }}
+        env:
+          REPORTS: ${{ github.workspace }}/rehearsal/reports
+        run: |
+          DB=postgresql+asyncpg://postgres:eval@127.0.0.1:5432
+          python -I examples/standalone_host.py lifecycle --db-url "$DB/lifecycle" > "$REPORTS/lifecycle.json"
+          python -I examples/standalone_host.py recovery-retention \
+            --db-url "$DB/recovery_retention" > "$REPORTS/recovery-retention.json"
+          python -I examples/standalone_host.py ownership \
+            --db-url "$DB/owner_a" --db-url-b "$DB/owner_b" > "$REPORTS/ownership.json"
+          python -I examples/standalone_host.py configured-hosts \
+            --db-url "$DB/atlas" --db-url-b "$DB/kai" > "$REPORTS/configured-hosts.json"
+          python -I examples/storage_upgrade.py --database-url "$DB/storage_upgrade" \
+            --disposable --report "$REPORTS/storage-upgrade.json"
+          MEMORY_SDK_TEST_DATABASE_URL="$DB/postgres" python -I -m pytest tests/postgres \
+            --junitxml="$REPORTS/postgres.xml"
+          python - "$REPORTS/postgres.xml" <<'PYCODE'
+          import sys, xml.etree.ElementTree as ET
+          cases = list(ET.parse(sys.argv[1]).getroot().iter("testcase"))
+          assert cases and all(
+              not any(c.find(tag) is not None for tag in ("skipped", "failure", "error")) for c in cases
+          )
+          PYCODE
+      - name: Bind exact source, installed bytes and executed proof
+        working-directory: ${{ env.CANDIDATE_ROOT }}
+        run: >-
+          python -I scripts/release_evidence.py
+          --dist "$GITHUB_WORKSPACE/rehearsal/dist"
+          --reports "$GITHUB_WORKSPACE/rehearsal/reports"
+          --source-commit "$GITHUB_SHA"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: recoleva-proof
+          path: |
+            rehearsal/reports
+            rehearsal/dist

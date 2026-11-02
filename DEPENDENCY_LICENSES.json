@@ -1,0 +1,71 @@
+{
+  "format": "recoleva-dependency-licenses/v1",
+  "scope": "observed runtime dependency versions from bootstrap proof; release.json records each release environment",
+  "vendored": false,
+  "dependencies": [
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "license": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ]
+    },
+    {
+      "name": "asyncpg",
+      "version": "0.32.0",
+      "license": "Apache-2.0",
+      "license_classifiers": []
+    },
+    {
+      "name": "greenlet",
+      "version": "3.5.6",
+      "license": "MIT AND PSF-2.0",
+      "license_classifiers": []
+    },
+    {
+      "name": "pgvector",
+      "version": "0.5.1",
+      "license": "MIT",
+      "license_classifiers": []
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.2",
+      "license": "MIT",
+      "license_classifiers": []
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.50.2",
+      "license": "MIT",
+      "license_classifiers": []
+    },
+    {
+      "name": "SQLAlchemy",
+      "version": "2.0.41",
+      "license": "MIT",
+      "license_classifiers": []
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "license": "MIT",
+      "license_classifiers": []
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "license": "PSF-2.0",
+      "license_classifiers": []
+    },
+    {
+      "name": "Unidecode",
+      "version": "1.4.0",
+      "license": "GPL",
+      "license_classifiers": [
+        "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "recoleva"
+version = "0.3.0"
+description = "Portable cognitive memory engine and typed host contract"
+readme = "README.md"
+requires-python = ">=3.13"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md"]
+dependencies = [
+  "SQLAlchemy[asyncio]>=2.0,<3",
+  "pgvector>=0.4,<1",
+  "pydantic>=2.10,<3",
+  "Unidecode>=1.4,<2",
+  "asyncpg>=0.30,<1",
+]
+
+[project.urls]
+Homepage = "https://github.com/dimabalony/recoleva"
+Source = "https://github.com/dimabalony/recoleva"
+Issues = "https://github.com/dimabalony/recoleva/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+kai_memory = ["py.typed"]

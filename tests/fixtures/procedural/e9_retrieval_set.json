@@ -1,0 +1,46 @@
+{
+  "_provenance": {
+    "source": "synthetic",
+    "author": "DB-880 generic trust-boundary fixture"
+  },
+  "rules": [
+    {
+      "id": "synthetic_fruit",
+      "trigger_pattern": "listing example fruit",
+      "guidance": "Sort example fruit alphabetically.",
+      "scope": {
+        "person": null,
+        "venue": "any",
+        "group_safe": false
+      }
+    },
+    {
+      "id": "r_person12_ru_only",
+      "trigger_pattern": "replying to the synthetic owner",
+      "guidance": "Use concise bullet points.",
+      "scope": {
+        "person": 12345,
+        "venue": "any",
+        "group_safe": false
+      }
+    }
+  ],
+  "queries": [
+    {
+      "query": "list example fruit",
+      "intended": [
+        "synthetic_fruit"
+      ],
+      "hard_negatives": [
+        "r_person12_ru_only"
+      ]
+    },
+    {
+      "query": "reply to a synthetic stranger",
+      "intended": [],
+      "hard_negatives": [
+        "r_person12_ru_only"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1503 @@
+{
+  "format": "memory-private-export/v1",
+  "destination_owner": "sdk",
+  "shared_test_support": [],
+  "ownership_sha256": "3212e7be03ab1006f29aae542872643940c1706cb80df402521771b6213f39aa",
+  "source_commit": "f5ad5b936d18f87da20ba2a7966d7d7482d386b5",
+  "source_tree_clean": true,
+  "source_identity": "source_commit is the base; manifest and per-file hashes identify exported bytes",
+  "manifest_sha256": "4129ced8b97186d9869d1056f23315e47a17e90d7082611be27d3798b42351ab",
+  "publication": "not authorized",
+  "license": "unselected; DB-884",
+  "public_name": "unselected; DB-884",
+  "dependencies": [
+    "SQLAlchemy[asyncio]>=2.0,<3",
+    "pgvector>=0.4,<1",
+    "pydantic>=2.10,<3",
+    "Unidecode>=1.4,<2",
+    "asyncpg>=0.30,<1"
+  ],
+  "dependency_inventory": [
+    {
+      "requirement": "SQLAlchemy[asyncio]>=2.0,<3",
+      "name": "SQLAlchemy",
+      "scope": "direct runtime",
+      "version": "2.0.41",
+      "license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ],
+      "requires": [
+        "importlib-metadata; python_version < \"3.8\"",
+        "greenlet>=1; python_version < \"3.14\" and (platform_machine == \"aarch64\" or (platform_machine == \"ppc64le\" or (platform_machine == \"x86_64\" or (platform_machine == \"amd64\" or (platform_machine == \"AMD64\" or (platform_machine == \"win32\" or platform_machine == \"WIN32\"))))))",
+        "typing-extensions>=4.6.0",
+        "greenlet>=1; extra == \"asyncio\"",
+        "mypy>=0.910; extra == \"mypy\"",
+        "pyodbc; extra == \"mssql\"",
+        "pymssql; extra == \"mssql-pymssql\"",
+        "pyodbc; extra == \"mssql-pyodbc\"",
+        "mysqlclient>=1.4.0; extra == \"mysql\"",
+        "mysql-connector-python; extra == \"mysql-connector\"",
+        "mariadb!=1.1.10,!=1.1.2,!=1.1.5,>=1.0.1; extra == \"mariadb-connector\"",
+        "cx_oracle>=8; extra == \"oracle\"",
+        "oracledb>=1.0.1; extra == \"oracle-oracledb\"",
+        "psycopg2>=2.7; extra == \"postgresql\"",
+        "pg8000>=1.29.1; extra == \"postgresql-pg8000\"",
+        "greenlet>=1; extra == \"postgresql-asyncpg\"",
+        "asyncpg; extra == \"postgresql-asyncpg\"",
+        "psycopg2-binary; extra == \"postgresql-psycopg2binary\"",
+        "psycopg2cffi; extra == \"postgresql-psycopg2cffi\"",
+        "psycopg>=3.0.7; extra == \"postgresql-psycopg\"",
+        "psycopg[binary]>=3.0.7; extra == \"postgresql-psycopgbinary\"",
+        "pymysql; extra == \"pymysql\"",
+        "greenlet>=1; extra == \"aiomysql\"",
+        "aiomysql>=0.2.0; extra == \"aiomysql\"",
+        "greenlet>=1; extra == \"aioodbc\"",
+        "aioodbc; extra == \"aioodbc\"",
+        "greenlet>=1; extra == \"asyncmy\"",
+        "asyncmy!=0.2.4,!=0.2.6,>=0.2.3; extra == \"asyncmy\"",
+        "greenlet>=1; extra == \"aiosqlite\"",
+        "aiosqlite; extra == \"aiosqlite\"",
+        "typing_extensions!=3.10.0.1; extra == \"aiosqlite\"",
+        "sqlcipher3_binary; extra == \"sqlcipher\""
+      ],
+      "status": "observed installed distribution metadata; not legal clearance"
+    },
+    {
+      "requirement": "pgvector>=0.4,<1",
+      "name": "pgvector",
+      "scope": "direct runtime",
+      "version": "0.4.2",
+      "license": "MIT",
+      "license_files": [
+        "LICENSE.txt"
+      ],
+      "requires": [
+        "numpy"
+      ],
+      "status": "observed installed distribution metadata; not legal clearance"
+    },
+    {
+      "requirement": "pydantic>=2.10,<3",
+      "name": "pydantic",
+      "scope": "direct runtime",
+      "version": "2.13.4",
+      "license": "MIT",
+      "license_files": [
+        "LICENSE"
+      ],
+      "requires": [
+        "annotated-types>=0.6.0",
+        "pydantic-core==2.46.4",
+        "typing-extensions>=4.14.1",
+        "typing-inspection>=0.4.2",
+        "email-validator>=2.0.0; extra == 'email'",
+        "tzdata; (python_version >= '3.9' and platform_system == 'Windows') and extra == 'timezone'"
+      ],
+      "status": "observed installed distribution metadata; not legal clearance"
+    },
+    {
+      "requirement": "Unidecode>=1.4,<2",
+      "name": "Unidecode",
+      "scope": "direct runtime",
+      "version": "1.4.0",
+      "license": "GPL",
+      "license_files": [],
+      "requires": [],
+      "status": "observed installed distribution metadata; not legal clearance"
+    },
+    {
+      "requirement": "asyncpg>=0.30,<1",
+      "name": "asyncpg",
+      "scope": "direct runtime",
+      "version": "0.30.0",
+      "license": "Apache License, Version 2.0",
+      "license_files": [
+        "LICENSE",
+        "AUTHORS"
+      ],
+      "requires": [
+        "async-timeout>=4.0.3; python_version < \"3.11.0\"",
+        "Sphinx~=8.1.3; extra == \"docs\"",
+        "sphinx-rtd-theme>=1.2.2; extra == \"docs\"",
+        "gssapi; platform_system != \"Windows\" and extra == \"gssauth\"",
+        "sspilib; platform_system == \"Windows\" and extra == \"gssauth\"",
+        "flake8~=6.1; extra == \"test\"",
+        "flake8-pyi~=24.1.0; extra == \"test\"",
+        "distro~=1.9.0; extra == \"test\"",
+        "mypy~=1.8.0; extra == \"test\"",
+        "uvloop>=0.15.3; (platform_system != \"Windows\" and python_version < \"3.14.0\") and extra == \"test\"",
+        "gssapi; platform_system == \"Linux\" and extra == \"test\"",
+        "k5test; platform_system == \"Linux\" and extra == \"test\"",
+        "sspilib; platform_system == \"Windows\" and extra == \"test\""
+      ],
+      "status": "observed installed distribution metadata; not legal clearance"
+    }
+  ],
+  "test_profile": "requirements-test.txt (host-qualified SQLAlchemy 2.0.41; other allowed runtime versions not claimed qualified)",
+  "dependency_license_status": "not cleared for public redistribution; inspect installed dependency metadata before DB-884 decision",
+  "host_only_tests_retained": {
+    "test_new_models_import_from_package": "Host aggregate import includes private cache model; owned model construction tests retained",
+    "test_chat_artifact_cache_dep_construction": "Host cache dependency model outside memory schema",
+    "test_chat_engine_reexports_the_moved_objects": "Private host chat_engine alias identity; no SDK mechanism assertions excluded",
+    "test_provenance_ratchet_lists_exactly_the_legacy_sets": "Private host full-fixture inventory ratchet; private fixture sets are intentionally omitted"
+  },
+  "omitted": {
+    "private-retain": 433,
+    "decouple-defer": 123
+  },
+  "files": [
+    {
+      "path": "tests/memory_test_sanitizer.py",
+      "source_sha256": "9ecec4069e15e6b76ad9bf5f2048aeaca5b35109cbaa3701da9f6812bf50e811",
+      "sha256": "11f261c85cbf0bef205cf6629fc52ab483307ddbfd44678188a292d6b11f07a2",
+      "transform": "test-sanitizer",
+      "provenance": "Owned generic sanitizer AST export excludes credential-stash operational function; remaining security algorithms unchanged."
+    },
+    {
+      "path": "tests/memory_test_parsing.py",
+      "source_sha256": "82f1669398a89316f9ddfcdec0c0edc4abd5ba95a0798b4d69b81884ff49078c",
+      "sha256": "82f1669398a89316f9ddfcdec0c0edc4abd5ba95a0798b4d69b81884ff49078c",
+      "transform": "identity",
+      "provenance": "Owned generic JSON response parser used by existing extraction tests; no application imports, identity or transcript content."
+    },
+    {
+      "path": "tests/memory_test_tokens.py",
+      "source_sha256": "cdcab8f3e60f442fa2277295575a050f7cf5a38edeff7f0c12aa078621b7f66f",
+      "sha256": "cdcab8f3e60f442fa2277295575a050f7cf5a38edeff7f0c12aa078621b7f66f",
+      "transform": "identity",
+      "provenance": "Owned stdlib-only transport envelope parser; test-only host hygiene adapter, no private content."
+    },
+    {
+      "path": "tests/memory_test_skill.py",
+      "source_sha256": "c412ba99bb44a2eae6cbcb601248116a56740c7ff4eabbd2cd65279bf80675bd",
+      "sha256": "462d7b2fa5f85fe5607f5386b52b119059306b0619b764c92f29619c5d66cab7",
+      "transform": "test-skill",
+      "provenance": "Owned exact BLOCKED_SKILL_PATTERNS and validate_skill_content AST nodes only; unrelated host persistence omitted."
+    },
+    {
+      "path": "examples/standalone_host.py",
+      "source_sha256": "bd9386b799cf7060e7f34ebc9de43e2c70ed2497ccf66768b5354f1c08eb861f",
+      "sha256": "bd9386b799cf7060e7f34ebc9de43e2c70ed2497ccf66768b5354f1c08eb861f",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "examples/storage_m1_schema.json",
+      "source_sha256": "02760482767349711bb210c74f45d5fc01a9b16d19be0000367e90a782212ffc",
+      "sha256": "02760482767349711bb210c74f45d5fc01a9b16d19be0000367e90a782212ffc",
+      "transform": "identity",
+      "provenance": "Reviewed versioned read-only storage compatibility implementation and synthetic disposable historical upgrade rehearsal; no host migrations or private data"
+    },
+    {
+      "path": "examples/storage_upgrade.py",
+      "source_sha256": "401a255f2fcb07ccfad8c629050c2ea925a6f5db9fb349ef10e95e1bfad1dfb6",
+      "sha256": "401a255f2fcb07ccfad8c629050c2ea925a6f5db9fb349ef10e95e1bfad1dfb6",
+      "transform": "identity",
+      "provenance": "Reviewed versioned read-only storage compatibility implementation and synthetic disposable historical upgrade rehearsal; no host migrations or private data"
+    },
+    {
+      "path": "pyproject.toml",
+      "source_sha256": "b3a0261b9e28df42db0ca3b194be0d8f3d46f732eed77323946487318cd03c87",
+      "sha256": "b3a0261b9e28df42db0ca3b194be0d8f3d46f732eed77323946487318cd03c87",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/__init__.py",
+      "source_sha256": "327e68cdfabe0c3a35376ff39ca55410562c71aa7353a7971a4a43e67206f625",
+      "sha256": "327e68cdfabe0c3a35376ff39ca55410562c71aa7353a7971a4a43e67206f625",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/adapter.py",
+      "source_sha256": "8b63349ab6a7dfd68a0f9c010b93edcc00128d50affb7bc667c617e850810e4a",
+      "sha256": "8b63349ab6a7dfd68a0f9c010b93edcc00128d50affb7bc667c617e850810e4a",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifact_pipeline.py",
+      "source_sha256": "748aabec438c23cfc6d7ff1e115d99827ac81b928d1124f20f696a3ac9073c12",
+      "sha256": "748aabec438c23cfc6d7ff1e115d99827ac81b928d1124f20f696a3ac9073c12",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifact_schemas.py",
+      "source_sha256": "583a822d3f2e7d0aabf7c82d31e0024550c4f9807492f1a77429656185a612e2",
+      "sha256": "583a822d3f2e7d0aabf7c82d31e0024550c4f9807492f1a77429656185a612e2",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/__init__.py",
+      "source_sha256": "6c63d37c56fa177813b83c8b9c3236fc4c48e6c2f62f10915eafaa2e3b49eaf4",
+      "sha256": "6c63d37c56fa177813b83c8b9c3236fc4c48e6c2f62f10915eafaa2e3b49eaf4",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/_dimension_normalizer.py",
+      "source_sha256": "c8ddc033008cd08eb743d0c615f1b79d87fe6658211294ca7a5847f2458cea3a",
+      "sha256": "c8ddc033008cd08eb743d0c615f1b79d87fe6658211294ca7a5847f2458cea3a",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/producer.py",
+      "source_sha256": "6e04a05489b510205cfcbdfee5415c66c93c3797d2503f24310da11328df4d21",
+      "sha256": "6e04a05489b510205cfcbdfee5415c66c93c3797d2503f24310da11328df4d21",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/producers/__init__.py",
+      "source_sha256": "5738efd17a4f6d59f646c9e7007727d2efa8542ae8c703c7ad822f981bd9ddfe",
+      "sha256": "5738efd17a4f6d59f646c9e7007727d2efa8542ae8c703c7ad822f981bd9ddfe",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/producers/contrastive_map.py",
+      "source_sha256": "e23f71642827275cd717ec7707aae532911b4eb4ffade5d962ece2f718f7f0b3",
+      "sha256": "e23f71642827275cd717ec7707aae532911b4eb4ffade5d962ece2f718f7f0b3",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/producers/cue_mapping.py",
+      "source_sha256": "6ef3fddc3096f991783d5fae881ecdbf6df4ee698960e7672c2a9e29e88c8e12",
+      "sha256": "6ef3fddc3096f991783d5fae881ecdbf6df4ee698960e7672c2a9e29e88c8e12",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/producers/entity_schema.py",
+      "source_sha256": "c8dd2221b63d447404160a2feb42a8e54100d1ce94d7e6fdfe036d4e850b54c9",
+      "sha256": "c8dd2221b63d447404160a2feb42a8e54100d1ce94d7e6fdfe036d4e850b54c9",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/producers/identity_record.py",
+      "source_sha256": "a6dd6b6e83653130b8a8c1051b73236d0e1a86b796797be1f91c0f1f9813c8ba",
+      "sha256": "a6dd6b6e83653130b8a8c1051b73236d0e1a86b796797be1f91c0f1f9813c8ba",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/producers/pattern_producer.py",
+      "source_sha256": "c507b862ac8992e0c83acabd5f4ba4b0cf5d437f0c7a7b43ad50fc21571a9a6a",
+      "sha256": "c507b862ac8992e0c83acabd5f4ba4b0cf5d437f0c7a7b43ad50fc21571a9a6a",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/producers/stance_producer.py",
+      "source_sha256": "5f3ba0bdc123a9bff7a03f24f4aae92968bb0e47e4863d8910c400e994da4dc4",
+      "sha256": "5f3ba0bdc123a9bff7a03f24f4aae92968bb0e47e4863d8910c400e994da4dc4",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/producers/trait_producer.py",
+      "source_sha256": "5fd0296514baaa9d1ac96c72bee420adbec429bb4abcbf2daadb229ed2f6d087",
+      "sha256": "5fd0296514baaa9d1ac96c72bee420adbec429bb4abcbf2daadb229ed2f6d087",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/producers/trajectory.py",
+      "source_sha256": "1d372f234976cd8d48569d493a1b79bb2e0e3d3b7c271c4a107dab8b734a28ae",
+      "sha256": "1d372f234976cd8d48569d493a1b79bb2e0e3d3b7c271c4a107dab8b734a28ae",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/artifacts/types.py",
+      "source_sha256": "4c5693037fc491ba5abb53d161dab8e9ba884caae091cefe1af70356d454bae9",
+      "sha256": "4c5693037fc491ba5abb53d161dab8e9ba884caae091cefe1af70356d454bae9",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/canonicalization.py",
+      "source_sha256": "b4c7967d61b17cffb6b6aa2bbaec09f87af59bc2ebb1f18549b828ba153104ba",
+      "sha256": "b4c7967d61b17cffb6b6aa2bbaec09f87af59bc2ebb1f18549b828ba153104ba",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/canonicalization_cleanup.py",
+      "source_sha256": "9d0bb99edceadf9c74c4151d41c242c6d894e7d531bde4515599661b843c8666",
+      "sha256": "9d0bb99edceadf9c74c4151d41c242c6d894e7d531bde4515599661b843c8666",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/canonicalization_cleanup_runner.py",
+      "source_sha256": "9128f0293282a7360ad2abbbf2a5171cbdb49e75bfe96832b459df2c6890992f",
+      "sha256": "9128f0293282a7360ad2abbbf2a5171cbdb49e75bfe96832b459df2c6890992f",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/configuration.py",
+      "source_sha256": "2ace5a05d22142f707b144a58fb752febb6872d7ffd6cf732262f15a6a4bf692",
+      "sha256": "2ace5a05d22142f707b144a58fb752febb6872d7ffd6cf732262f15a6a4bf692",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/consolidation/__init__.py",
+      "source_sha256": "e67acec0a61b5e9284bcd44bfe9548d59939ef70b745279456b08762c2f13184",
+      "sha256": "e67acec0a61b5e9284bcd44bfe9548d59939ef70b745279456b08762c2f13184",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/consolidation/consolidation.py",
+      "source_sha256": "3fa6d099e90634321651c14c264dfb9f24d1ee0ea43cb39b044d115dfe49411c",
+      "sha256": "3fa6d099e90634321651c14c264dfb9f24d1ee0ea43cb39b044d115dfe49411c",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/consolidation/consolidation_trigger.py",
+      "source_sha256": "1694d86b63bbe65620724c07fbec8f99afadf7ea8a59ae810256d15da42cbd1a",
+      "sha256": "1694d86b63bbe65620724c07fbec8f99afadf7ea8a59ae810256d15da42cbd1a",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/durable_backfill.py",
+      "source_sha256": "376cb7ece6f2a3e5b57cfe5f743d68ff8310c623fe082b00080c2b82841d41f6",
+      "sha256": "376cb7ece6f2a3e5b57cfe5f743d68ff8310c623fe082b00080c2b82841d41f6",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/durable_schema.py",
+      "source_sha256": "4f36202ba6eea675149f9d68a2e032e72b14c51c1a13b08d8dc693c8ec063a94",
+      "sha256": "4f36202ba6eea675149f9d68a2e032e72b14c51c1a13b08d8dc693c8ec063a94",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/entity_resolution_tier3.py",
+      "source_sha256": "6fef9e930c2349c3577d8f9eff5a5d465445a13b9a8f216420862555d4e67dca",
+      "sha256": "6fef9e930c2349c3577d8f9eff5a5d465445a13b9a8f216420862555d4e67dca",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/ephemeral_probe.py",
+      "source_sha256": "58a929cf787724dfc47cdb8bccab1c7369ab45b747f3a2f0a584f507e5148e75",
+      "sha256": "58a929cf787724dfc47cdb8bccab1c7369ab45b747f3a2f0a584f507e5148e75",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/extraction/__init__.py",
+      "source_sha256": "181ad9187f6a6dea40e10aa01e364f365e035d10a39152fd67d883a8d4dbb03d",
+      "sha256": "181ad9187f6a6dea40e10aa01e364f365e035d10a39152fd67d883a8d4dbb03d",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/extraction/memory_extraction.py",
+      "source_sha256": "5cec11230202d42898df494a83eaa2c31375c6d0f8431ca12833f3f625b5f07f",
+      "sha256": "5cec11230202d42898df494a83eaa2c31375c6d0f8431ca12833f3f625b5f07f",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/extraction_cursor.py",
+      "source_sha256": "ec07dc0aadef8bd0b1320ad2f3e502a7fb39d64005ee64eee8c9b01beb075d64",
+      "sha256": "ec07dc0aadef8bd0b1320ad2f3e502a7fb39d64005ee64eee8c9b01beb075d64",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/host_calls.py",
+      "source_sha256": "145f9987bbe023cf41edd7ab675b588cfc4dee02fc643882e15f5420a3374491",
+      "sha256": "145f9987bbe023cf41edd7ab675b588cfc4dee02fc643882e15f5420a3374491",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/identity.py",
+      "source_sha256": "4428e3d46be7dfd195787507517060417916ff0944e9dff2179e89372725ef15",
+      "sha256": "4428e3d46be7dfd195787507517060417916ff0944e9dff2179e89372725ef15",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/ownership.py",
+      "source_sha256": "029e3885309d08873ba9ca375e940268a94612c6c4d7b70656c3f9af24c3e1c4",
+      "sha256": "029e3885309d08873ba9ca375e940268a94612c6c4d7b70656c3f9af24c3e1c4",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/persona_composer.py",
+      "source_sha256": "d493c1afcb256362359c20e5c257b5c133d9010e4fc26e3c236e71966e59def3",
+      "sha256": "d493c1afcb256362359c20e5c257b5c133d9010e4fc26e3c236e71966e59def3",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/ports.py",
+      "source_sha256": "b14636b28b3fbea84e8f0f1a3ad3485ef5ca910172bdd78635b7154b9f6a72d3",
+      "sha256": "b14636b28b3fbea84e8f0f1a3ad3485ef5ca910172bdd78635b7154b9f6a72d3",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/procedural/__init__.py",
+      "source_sha256": "451c79edf77071e2c5b7b787f51a1c65c3340d8130c521c082ac07ff7197f9c7",
+      "sha256": "451c79edf77071e2c5b7b787f51a1c65c3340d8130c521c082ac07ff7197f9c7",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/procedural/procedural_recorder.py",
+      "source_sha256": "4d0fc3dc3741e89de32652069d844998d978cde2a85f9327c1b272e2a0ca81f1",
+      "sha256": "4d0fc3dc3741e89de32652069d844998d978cde2a85f9327c1b272e2a0ca81f1",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/procedural/procedural_scope.py",
+      "source_sha256": "8437b6b277c5e286fac6163f2f79bb265ae085adda4f077131c5d6a413fa4649",
+      "sha256": "8437b6b277c5e286fac6163f2f79bb265ae085adda4f077131c5d6a413fa4649",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/procedural/procedural_serving.py",
+      "source_sha256": "706e9c14a1a9556b3cc3b94140f1282ec9b79924957529cfb11407f9580f3c57",
+      "sha256": "706e9c14a1a9556b3cc3b94140f1282ec9b79924957529cfb11407f9580f3c57",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/procedural/rule_capture.py",
+      "source_sha256": "669f960e3ac21286c2073d8afbcf22ba5f860a64475898b39e6d7a27d7fd3bd5",
+      "sha256": "669f960e3ac21286c2073d8afbcf22ba5f860a64475898b39e6d7a27d7fd3bd5",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/procedural_api.py",
+      "source_sha256": "f866908c35866fe07f8c1237de318ee5f9c331e4777e6492c08eb9ca0657036b",
+      "sha256": "f866908c35866fe07f8c1237de318ee5f9c331e4777e6492c08eb9ca0657036b",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/procedural_liveness.py",
+      "source_sha256": "7c8b04381f623d1496cc34cdc37940071ce6225c142023b028ce67662037d31e",
+      "sha256": "7c8b04381f623d1496cc34cdc37940071ce6225c142023b028ce67662037d31e",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/procedural_reinforcement.py",
+      "source_sha256": "8242d28fef9373f6b65db7b9253259e09a618c8af06139300c7e163bd63d228e",
+      "sha256": "8242d28fef9373f6b65db7b9253259e09a618c8af06139300c7e163bd63d228e",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/py.typed",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/recognition.py",
+      "source_sha256": "a5d9049ab4f7e06ecc389913fc124e8d5064d81cae003c4d32570110e10df4d4",
+      "sha256": "a5d9049ab4f7e06ecc389913fc124e8d5064d81cae003c4d32570110e10df4d4",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/retrieval/__init__.py",
+      "source_sha256": "54ab1e150729852ddeb9ad928c6b90eb8641da9bee9f64974ef5fbb3849e78d8",
+      "sha256": "54ab1e150729852ddeb9ad928c6b90eb8641da9bee9f64974ef5fbb3849e78d8",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/retrieval/iterative_retrieval.py",
+      "source_sha256": "46eb8a941cecd2652033abfe260e7460cb1cddbbfff5444ed5741f917fa2d507",
+      "sha256": "46eb8a941cecd2652033abfe260e7460cb1cddbbfff5444ed5741f917fa2d507",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/retrieval/memory_mechanisms.py",
+      "source_sha256": "6d68d0704d863c4c25f47f73a479d72bcbfca601c7f16b28752fc761b7637724",
+      "sha256": "6d68d0704d863c4c25f47f73a479d72bcbfca601c7f16b28752fc761b7637724",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/retrieval/memory_observation.py",
+      "source_sha256": "dac301c821c9ab4f2ab4838bce717d08d24ca24bdd38cfcc3f1b6b57549460ad",
+      "sha256": "dac301c821c9ab4f2ab4838bce717d08d24ca24bdd38cfcc3f1b6b57549460ad",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/retrieval/memory_priming.py",
+      "source_sha256": "60baba0d233737d09ba47a6dd9cca429918f4cec8c0c966643fe35ddece65961",
+      "sha256": "60baba0d233737d09ba47a6dd9cca429918f4cec8c0c966643fe35ddece65961",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/retrieval/weights.py",
+      "source_sha256": "47069f2f92b75e4b30c109dd31d08e3f5cd26628842a4aaeb68e8a72929fcd4a",
+      "sha256": "47069f2f92b75e4b30c109dd31d08e3f5cd26628842a4aaeb68e8a72929fcd4a",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/romanization.py",
+      "source_sha256": "6a3b75fc4aa6d1206849f0eb8354737ad3b9d5b2205d540a85a97ba566f8c74f",
+      "sha256": "6a3b75fc4aa6d1206849f0eb8354737ad3b9d5b2205d540a85a97ba566f8c74f",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/sdk.py",
+      "source_sha256": "014a28e4eafeba5302b4ce17b9f83d00e820300a0b26d361064451a792f3ebe1",
+      "sha256": "014a28e4eafeba5302b4ce17b9f83d00e820300a0b26d361064451a792f3ebe1",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/slot_profile.py",
+      "source_sha256": "ece34da46bc3ee434dfa83fee2371734c9ef87da46934f9e760d420c291065b9",
+      "sha256": "ece34da46bc3ee434dfa83fee2371734c9ef87da46934f9e760d420c291065b9",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/slot_summarizer.py",
+      "source_sha256": "e0812ae8b5d263f7d328996f041e702b451e67c6518f0fa08a7e79b408b10bb7",
+      "sha256": "e0812ae8b5d263f7d328996f041e702b451e67c6518f0fa08a7e79b408b10bb7",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/__init__.py",
+      "source_sha256": "1c45e52d38b17a3e21958d54d0a07e6d04eaf24e61403d2f04b84ca8cfec9642",
+      "sha256": "1c45e52d38b17a3e21958d54d0a07e6d04eaf24e61403d2f04b84ca8cfec9642",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/compatibility.py",
+      "source_sha256": "7ab699dca60d2937d108400264b7a9182ccfcc6d3799ba642b75e35afcd69298",
+      "sha256": "7ab699dca60d2937d108400264b7a9182ccfcc6d3799ba642b75e35afcd69298",
+      "transform": "identity",
+      "provenance": "Reviewed versioned read-only storage compatibility implementation and synthetic disposable historical upgrade rehearsal; no host migrations or private data"
+    },
+    {
+      "path": "src/kai_memory/storage/disposable.py",
+      "source_sha256": "075269c43d4b16e4990656f835956453478870a4104591d990a4685b3760a666",
+      "sha256": "075269c43d4b16e4990656f835956453478870a4104591d990a4685b3760a666",
+      "transform": "identity",
+      "provenance": "Single loopback URL guard for SDK disposable storage proof; evaluation reexports this implementation. No host configuration or provider calls."
+    },
+    {
+      "path": "src/kai_memory/storage/models/__init__.py",
+      "source_sha256": "aabd0efd778ff724d9c19a73c0f84c651b3f7c8acd463062488814659b3b7764",
+      "sha256": "aabd0efd778ff724d9c19a73c0f84c651b3f7c8acd463062488814659b3b7764",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/agent_memory.py",
+      "source_sha256": "fdf7dc4dd4a7da538ab4eb4d1269644e33e1ea51fdb6c5f01a34c989383495a6",
+      "sha256": "fdf7dc4dd4a7da538ab4eb4d1269644e33e1ea51fdb6c5f01a34c989383495a6",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/base.py",
+      "source_sha256": "54936106ff508bf27537c4a1ddb3ebad6d44001e52a6bb0968f72e5b81d68ea5",
+      "sha256": "54936106ff508bf27537c4a1ddb3ebad6d44001e52a6bb0968f72e5b81d68ea5",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/cognitive_config.py",
+      "source_sha256": "0efe1e1b698826528924e8c554e41c2a5f7e57a07cb6a961d98ba82207af8cb4",
+      "sha256": "0efe1e1b698826528924e8c554e41c2a5f7e57a07cb6a961d98ba82207af8cb4",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/confusion_set.py",
+      "source_sha256": "796c54a6dc36a932f42c283eeee08206dfea23481b868a5ad4d0f6c5d86cabb4",
+      "sha256": "796c54a6dc36a932f42c283eeee08206dfea23481b868a5ad4d0f6c5d86cabb4",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/confusion_set_member.py",
+      "source_sha256": "2924275a0b9e8baab002c296667ffdb2dbe7295cb990d2a8cd86ee8dab5920c3",
+      "sha256": "2924275a0b9e8baab002c296667ffdb2dbe7295cb990d2a8cd86ee8dab5920c3",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/consolidation_run.py",
+      "source_sha256": "f428a9611d54c512108816e5735d84cbb40e3dfc4b47f1280659e6c720ef7c3a",
+      "sha256": "f428a9611d54c512108816e5735d84cbb40e3dfc4b47f1280659e6c720ef7c3a",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/consolidation_run_rollback.py",
+      "source_sha256": "4a9c27b868fe853f1b1cacb5a9f4b7ec321c29000188789f8ffe3d41ba8f2559",
+      "sha256": "4a9c27b868fe853f1b1cacb5a9f4b7ec321c29000188789f8ffe3d41ba8f2559",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/entity_merge_candidate.py",
+      "source_sha256": "60bc56cdfe7a8623b7f503df33f38281e2d17c9f85af552dc3369987427e2b07",
+      "sha256": "60bc56cdfe7a8623b7f503df33f38281e2d17c9f85af552dc3369987427e2b07",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/entity_relationship.py",
+      "source_sha256": "0777ef6be8ce39008589451f2286c05c77a92deeee62087ea1f6d6467c2fc7eb",
+      "sha256": "0777ef6be8ce39008589451f2286c05c77a92deeee62087ea1f6d6467c2fc7eb",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/execution_trace.py",
+      "source_sha256": "6dd8ff0def5e012420ec97a9b67ce6d73e3e7882f28ab0c5500f9dff88cc2a40",
+      "sha256": "6dd8ff0def5e012420ec97a9b67ce6d73e3e7882f28ab0c5500f9dff88cc2a40",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/memory_artifact.py",
+      "source_sha256": "2bda551064a011296acc38263f7828a4199797adc115191c851786e96a1a95a9",
+      "sha256": "2bda551064a011296acc38263f7828a4199797adc115191c851786e96a1a95a9",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/memory_entity.py",
+      "source_sha256": "e5d79fc60ba82ead6bb401dcf3beef584251c5da19a8c2a1001a1c49349a9e08",
+      "sha256": "e5d79fc60ba82ead6bb401dcf3beef584251c5da19a8c2a1001a1c49349a9e08",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/memory_entity_link.py",
+      "source_sha256": "f9a43899f8510159965958044fa5d58f28ac25379a14cc236f02415b22230c26",
+      "sha256": "f9a43899f8510159965958044fa5d58f28ac25379a14cc236f02415b22230c26",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/memory_trace.py",
+      "source_sha256": "2af487deeef77905ad6b1245b723bec7f617d9a72b3201f87d33cb5c7d1a6305",
+      "sha256": "2af487deeef77905ad6b1245b723bec7f617d9a72b3201f87d33cb5c7d1a6305",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/retrieval_config.py",
+      "source_sha256": "bfb44393096b7b0820ce8f507ad74a5c3f6cac537fec5550047eb76884fd5f2f",
+      "sha256": "bfb44393096b7b0820ce8f507ad74a5c3f6cac537fec5550047eb76884fd5f2f",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/social_context.py",
+      "source_sha256": "3a22af831c9044cf6c46e18e0ae457e38044d2a1efb267f3362cda7d20eb6144",
+      "sha256": "3a22af831c9044cf6c46e18e0ae457e38044d2a1efb267f3362cda7d20eb6144",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/trace_inhibition.py",
+      "source_sha256": "5b84a96102e5c3d4570c82d17c2a8528ad6110afb1c22433f169d1ef2a8d0da5",
+      "sha256": "5b84a96102e5c3d4570c82d17c2a8528ad6110afb1c22433f169d1ef2a8d0da5",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/storage/models/user_profile.py",
+      "source_sha256": "dd22c59c50f4ba3531cb01a8a334af765cac464e1b27ee7f5c65a32589c590bd",
+      "sha256": "dd22c59c50f4ba3531cb01a8a334af765cac464e1b27ee7f5c65a32589c590bd",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/store/__init__.py",
+      "source_sha256": "307d708ed2f184fb59799f358e678c2b132f1c14db72fb4a38ef277d6eaed6d5",
+      "sha256": "307d708ed2f184fb59799f358e678c2b132f1c14db72fb4a38ef277d6eaed6d5",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/store/agent_memory_store.py",
+      "source_sha256": "b43869deedb5db422b7066a6d11c89c0ec29f9a94c80ac0b27a9ed4b16355f10",
+      "sha256": "b43869deedb5db422b7066a6d11c89c0ec29f9a94c80ac0b27a9ed4b16355f10",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/store/cognitive_config.py",
+      "source_sha256": "4d48e32e33dec56e0c1c26382b183a5b11022df07cd9dc4ca2c05b4230670bd2",
+      "sha256": "4d48e32e33dec56e0c1c26382b183a5b11022df07cd9dc4ca2c05b4230670bd2",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/store/cognitive_memory.py",
+      "source_sha256": "a02eba03fd943124a533d6670d45f061255cbb785ce08d488ef127966a549f35",
+      "sha256": "a02eba03fd943124a533d6670d45f061255cbb785ce08d488ef127966a549f35",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/store/cognitive_memory_constants.py",
+      "source_sha256": "5bc3bd586f4171e03503122e473066be860eea31f93e54ae92ade42e30b74ad1",
+      "sha256": "5bc3bd586f4171e03503122e473066be860eea31f93e54ae92ade42e30b74ad1",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/store/embeddings.py",
+      "source_sha256": "217eb4c078b093d0362129d505bb6ed58d7e3dd1d5dc4932c900487159e11143",
+      "sha256": "217eb4c078b093d0362129d505bb6ed58d7e3dd1d5dc4932c900487159e11143",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/subject_attribution.py",
+      "source_sha256": "20a6bdb7c692c42aa2013be0186a36b0b2209edbc162f97ebe96459241c5b04e",
+      "sha256": "20a6bdb7c692c42aa2013be0186a36b0b2209edbc162f97ebe96459241c5b04e",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/subject_backfill.py",
+      "source_sha256": "ee1f70281da543d76e33095287fbfb38a72543f9349669a9655b0d0e62cd9d9d",
+      "sha256": "ee1f70281da543d76e33095287fbfb38a72543f9349669a9655b0d0e62cd9d9d",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/turn.py",
+      "source_sha256": "ea3ea3eb6c162213e4441a82f28679719e9d56e685c556becd4480c7a56ddd78",
+      "sha256": "ea3ea3eb6c162213e4441a82f28679719e9d56e685c556becd4480c7a56ddd78",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "src/kai_memory/types.py",
+      "source_sha256": "ea738838ca183f81ec3abfb8427e9ec705f1b5b4b3b51ba6843f2b4c317d8cd4",
+      "sha256": "ea738838ca183f81ec3abfb8427e9ec705f1b5b4b3b51ba6843f2b4c317d8cd4",
+      "transform": "identity",
+      "provenance": "Owned SDK implementation/metadata or synthetic standalone example; unchanged bytes; host adapters explicit"
+    },
+    {
+      "path": "tests/postgres/conftest.py",
+      "source_sha256": "710d8e57def2eb88eac89379ed9e7824861c7d598bfc918db67636f874c33d28",
+      "sha256": "710d8e57def2eb88eac89379ed9e7824861c7d598bfc918db67636f874c33d28",
+      "transform": "identity",
+      "provenance": "Explicit loopback-only server and uniquely created disposable test databases; SDK metadata bootstrap and no remote connections."
+    },
+    {
+      "path": "tests/postgres/test_clock.py",
+      "source_sha256": "35cd4f6ee73217fcf58c808d6698ff11b1c31940d4355607f7eeb070702b49a3",
+      "sha256": "35cd4f6ee73217fcf58c808d6698ff11b1c31940d4355607f7eeb070702b49a3",
+      "transform": "identity",
+      "provenance": "Portable synthetic host-clock PostgreSQL assertions; private original retained and AST equivalence checked."
+    },
+    {
+      "path": "tests/postgres/test_procedural.py",
+      "source_sha256": "6c0db0244521cc19f6b142465edac45b756164444c20e7006da77b44302bd5b0",
+      "sha256": "6c0db0244521cc19f6b142465edac45b756164444c20e7006da77b44302bd5b0",
+      "transform": "identity",
+      "provenance": "Portable procedural PostgreSQL lifecycle, replay, scope and borrowed-transaction assertions; SDK entity sentinel replaces private conversation model without dropping assertions."
+    },
+    {
+      "path": "tests/postgres/test_public_client.py",
+      "source_sha256": "94bf46580f65787d2382576d8557384be71f85e505c6f344c4f2e1a6508ed5ad",
+      "sha256": "94bf46580f65787d2382576d8557384be71f85e505c6f344c4f2e1a6508ed5ad",
+      "transform": "identity",
+      "provenance": "Portable M5 public-client sharing, attribution, persona and recovery PostgreSQL contracts; synthetic adapters only; private original and assertion-equivalence checks retained."
+    },
+    {
+      "path": "tests/postgres/test_storage.py",
+      "source_sha256": "2ba1d341bb1f7daa51beb31ec8c884571c964199fa6092a0951d906d0ff893f4",
+      "sha256": "2ba1d341bb1f7daa51beb31ec8c884571c964199fa6092a0951d906d0ff893f4",
+      "transform": "identity",
+      "provenance": "Portable disposable storage ownership, schema hooks and bootstrap atomicity assertions. Evaluator-specific transaction sandbox case remains a private integration obligation."
+    },
+    {
+      "path": "tests/memory_test_host.py",
+      "source_sha256": "364dbe2cc8007d614c170d0211f4f340a78a191fc9bb7ef010239b664847582d",
+      "sha256": "364dbe2cc8007d614c170d0211f4f340a78a191fc9bb7ef010239b664847582d",
+      "transform": "identity",
+      "provenance": "Minimal synthetic SDK test values and fail-closed adapters, independent of private host and evaluation. Constant vectors establish storage contracts only."
+    },
+    {
+      "path": "tests/test_ports_bind.py",
+      "source_sha256": "1a0d0cfac27446014656b4aefd413523745d09806129f0b195c349870b6ddfea",
+      "sha256": "1a0d0cfac27446014656b4aefd413523745d09806129f0b195c349870b6ddfea",
+      "transform": "identity",
+      "provenance": "Portable binding and scoped restoration assertions using an explicit resolver and local refusing factory; private fallback integration remains in its original suite."
+    },
+    {
+      "path": "tests/test_sdk_proof_support.py",
+      "source_sha256": "3c973b566222986dc12f4b8d84cda174f848f511657d28e9740600294d680c64",
+      "sha256": "3c973b566222986dc12f4b8d84cda174f848f511657d28e9740600294d680c64",
+      "transform": "identity",
+      "provenance": "SDK proof import-boundary, synthetic support and disposable URL safety assertions; excludes private-host and evaluation imports."
+    },
+    {
+      "path": "tests/test_storage_composition.py",
+      "source_sha256": "75f54021effc9b1c5c8d7ca589abdde941b00828029899d4492c2dcb8c8cae5f",
+      "sha256": "75f54021effc9b1c5c8d7ca589abdde941b00828029899d4492c2dcb8c8cae5f",
+      "transform": "identity",
+      "provenance": "Generic SDK metadata composition, conflict refusal and index semantics; private historical fingerprints and host foreign-key tests remain unchanged."
+    },
+    {
+      "path": "tests/memory_host_policy.py",
+      "source_sha256": "9d371b995d214bbaa9081af87c2c0a4f6fa864663cb265dd5f4eba7b5553c1cd",
+      "sha256": "9d371b995d214bbaa9081af87c2c0a4f6fa864663cb265dd5f4eba7b5553c1cd",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/services/memory/artifacts/test_contrastive_map.py",
+      "source_sha256": "f23db77495dd02c5fc92dc4500b462c42ad13e09a38c3a0f0293fefd49a6eb51",
+      "sha256": "8196cd2af8b2444ba68629f3e149fdebb6d9a8e521c9013d27bb172f15befbab",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/services/memory/artifacts/test_cue_mapping.py",
+      "source_sha256": "ac79ae57a0321be7b279aa29e634c29f4e53b53fe9fbf3cb12d936d6d129e6d0",
+      "sha256": "43b7270f25a5c4335879efa08d7db9fb4f67a4cfb6f4eee8c4884a74f21df6ec",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/services/memory/artifacts/test_dimension_normalizer.py",
+      "source_sha256": "5f97dff51fb7c897419855687bce92170655a98a8ab0f16aa07fcf6fd430d1d5",
+      "sha256": "47c168ec038cff91fa324a9b2cc773547125041cf0dafcf5945934de35b1edf0",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/services/memory/artifacts/test_entity_schema.py",
+      "source_sha256": "160dfd04ec55c6a064a23742c88919d3e6e3052fdcaa2ebf9002c68b4a57259c",
+      "sha256": "da53fb58307d924576ac6d06034091af16699775bb747f4dae7b89c5ba33284b",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/services/memory/artifacts/test_identity_record.py",
+      "source_sha256": "f87a887ca6835d92fd757ee1b0df14243f21ca585e53daeda70c2bf351bd9c8f",
+      "sha256": "a060c15e643a065944b2960b4408415217acf80a402db0719daeb37f03fd1279",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/services/memory/artifacts/test_pattern_producer.py",
+      "source_sha256": "98a32f87aeb1e4b823cb0d989082ebee27d396c6b111bc314e930abbd96437a4",
+      "sha256": "503f122b2b8e41862d456208c6f81d24870bdb96649fcff1f21410d0c0281ff4",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/services/memory/artifacts/test_permanent_guard.py",
+      "source_sha256": "cd032d142ce7cee3d0da852b44216b581c818481b81ab345e0abf8392672ea10",
+      "sha256": "21bf6ca0456f2023ddaf62e8fa650a65794a9f18a5fe6a375308b28abb2e0da1",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/services/memory/artifacts/test_stance_producer.py",
+      "source_sha256": "8e48eaa1731753bed595fe7b461850bb29935bb801a826b605643995e205ccdd",
+      "sha256": "cad434faa39413e3fd53dba1e12cb1939eb56b13c41dfdd299459425dced64ad",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/services/memory/artifacts/test_trait_producer.py",
+      "source_sha256": "123b7628a7cc80790ffe763ea18c477c0f2fe79cf334e390e4a6f88e12a967a5",
+      "sha256": "cd8154edd26bf573e6dc709c6f26b99e9204410fc704b64d8b31ea89730caa4c",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/services/memory/artifacts/test_trajectory.py",
+      "source_sha256": "31c58baef8ca0989ea6e06d9cd49533070f930b6bdb0bb00a7de1dd223718ac3",
+      "sha256": "f8ac4661177b069bde24a33f702e0bb52f1e4be8a30c1e6c3d37e15864202c47",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/services/memory/test_persona_composer_fetches.py",
+      "source_sha256": "e6586b61e18f67af7495cb30cffb98bfb2f23313c4678c93e90a9573ef4e9eb4",
+      "sha256": "3024a6fed6af0525748cd95b038da679abff996a5273f347efe43a6cc311a98f",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/services/memory/test_persona_composer_trajectory.py",
+      "source_sha256": "73fdee3b4bbce20e01c2e79fa8a04853e72edf7072f75bcc0c35d1756ac18c04",
+      "sha256": "d83f8892a8f8153fa98a73f4dfb5a0a410de0a67cc098eaeb6538ff4c2b21adf",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/services/test_artifact_pipeline.py",
+      "source_sha256": "c69e2f716d3e964bd46cf5c1b327f6d207447bc98c8534b0f8b83ec2090ad5a5",
+      "sha256": "1ca4f55f16c7e77dd74822953d7c49f4f0d0ee6b79e42bef329549c7b3b61e18",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Owned complete generic scorer/pipeline synthetic unit coverage; canonical import aliases only; original retained."
+    },
+    {
+      "path": "tests/test_agent_memory_model.py",
+      "source_sha256": "4331adbd68ace53934c8471c5f34b3c8a312087feb9198a0e7bb93933b2500ab",
+      "sha256": "6e0643349490d30ce066e2c190e80c9c1e95a44f41d12208f802748eb615bd98",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_artifact_schemas.py",
+      "source_sha256": "adce3def593b870bdb2e3ce0ce0e71ca1d4a791ca19214092f18503a1ba9d43b",
+      "sha256": "2a78b638bccd73758556597e7fa55924e337bae2f250718f9dab7784989811f5",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_canonicalization.py",
+      "source_sha256": "3112ad4c4903fff74fa406243875844c5e52a7cbd2b35433178622fcdde02207",
+      "sha256": "3ea8acf362b8c27c7ec110a3bd459498830bfb3703417769dbf5098cf8e9fb29",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_canonicalization_cleanup.py",
+      "source_sha256": "37d97d41413ff0df680590c68e3bb8b44df0c7f60d49d2969badadf98e95fab9",
+      "sha256": "32eec92293314495834c94ef3615dc3393043434f620ba65f435e84a0d59a147",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_canonicalization_cleanup_runner.py",
+      "source_sha256": "447943e9c218280b1fa4b7ea4eb50070a91cbeee420645bfa09da29f3684da8b",
+      "sha256": "378c9ab27eb2c3cebae04c9dc5fb3da4ae3159a112969480c029d61f597df7f9",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_cognitive_config_value.py",
+      "source_sha256": "a4429b49c248d81806bfde75fb4b576e4d00e96f9862b1f987280a3a3249161b",
+      "sha256": "fde25cda29284451645ec1c0f5ea9a16a632cf7cf2645ea2e24334d56b4d2362",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_cognitive_memory.py",
+      "source_sha256": "8929201ccd03dc2eaab41ef2fbd5708e3aab99e238a21d8941ad215e3f07f3bc",
+      "sha256": "52e16f2bd5daa18c65c91e1020006fb3f2620ed5c6cf43a85b52d1cef8376bbd",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_consolidation.py",
+      "source_sha256": "9f62adf5accfceb1e3a2e55f0e5b1498e7da7258a5ad229aba33315ac8b978cd",
+      "sha256": "73f9b90373728d223ea030da5bad8f3a2704a6c0659a18aa41b5263d6f4bd424",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_consolidation_config_reload.py",
+      "source_sha256": "603b1c36526fa2b69321420e4c466697e4a0186903f379d007c02136e21a4e46",
+      "sha256": "a4463710b463d615ca2053ac2abb4275b8cb8f110fd5f36c4851df0fa9b70e09",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_consolidation_pipeline_registration.py",
+      "source_sha256": "b9b3d2c52fdd5a4d1a3c6bf49abce22cdd17f6790141c0e9770d4b696e7d1fc9",
+      "sha256": "ff0bfb01c89e0c37b86099106dce17ae96c8acd88e433c67e4780134cb876041",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_consolidation_trigger.py",
+      "source_sha256": "a1d90f1040aa9ce8e892def1e598884ba5a994cb84a7c323b3a2cdbf3a1b111b",
+      "sha256": "283d1bf0a49e49790409c3a33d506970ec4799280196eeba15a172d59c03812f",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_durable_backfill.py",
+      "source_sha256": "b289ecee13c6d1b985a522171f4cc0767e4b872d71e8cc4eed1b3e0d75ff02d0",
+      "sha256": "637258a09575488f631a39a5f559365a7747e2d86aba5f236020769db8edd65c",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_entity_resolution_integration.py",
+      "source_sha256": "3c37298155a7550da678f73b8fb1e8f8a65fd2260d5d11ac0541c7493cfbbeff",
+      "sha256": "8e4e4dd937e8ab1aa5bb739512168c4849e4412ae1f84d49e8f972b81dd58201",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_entity_resolution_tier3.py",
+      "source_sha256": "68b233525c179dbdaffc9a5fcf3e1b712317c82851e17ea30738d15c3159700e",
+      "sha256": "f5ed3d86113653ec019d844e6f74a75f8ece6055dfde27df8c3eea9301825dd3",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_entity_schema_shadow.py",
+      "source_sha256": "c9eb98bbb68532dbc4d6cf64604db92e80b12c5b248779017fd09f96dc47c60b",
+      "sha256": "a7552ad2e178181da2265ac1f2a9e785467f9894531abcfb6e5f20b502fa67b4",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_extraction_cursor.py",
+      "source_sha256": "bae97871345b5ccf2a4b0ca4c99137d72862a20fe25ad0f29c97c28f230aed49",
+      "sha256": "b06783e42b07dc934c5210f7b32f1e6db8664a09b09695d1041bc0c99e2933d8",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_find_entities_by_lowercase_tokens.py",
+      "source_sha256": "92acabe9e5c064518bee9193ed4004d6d869695cc24f06c4660deff43abf70c5",
+      "sha256": "752eb0d88741c57a9d60c2291737904b5f3478b14158e2db6c61fa1a38a33eac",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_find_entities_by_names.py",
+      "source_sha256": "161135f5e54348109a7ed8dedabd2a450027e398c0ba38bdda46d5ac575436c0",
+      "sha256": "a55cdec085bb5054d28f081c55342cb240cf101734012abc57dc67ac929278d6",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_find_or_create_entity.py",
+      "source_sha256": "c777820117471e2812c155e2964402a83809ce62d844c784845db6aef6b54950",
+      "sha256": "942d6cf1aab3144e480281e1c19a693bd5462d02d5f371bf33acc63a7ebc8644",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_grounding_v2.py",
+      "source_sha256": "f715725bc88e9dcc42f9eb5f9cf64a5ab345bda149b1352a2f498009f82076c5",
+      "sha256": "51d0263ae87a2f9b7215b527ff5973dcec9e342e5259eb839e385a078d0945ef",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_iterative_retrieval.py",
+      "source_sha256": "89443e35265e901cd395ba6ea6d834b40a2f75519dce2abe51b0b1755cd35793",
+      "sha256": "4db70f6b4f972732ae2182a7bcd49cb8d434ee351c82c1e9d5a4b8b55eeb03e6",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_memory_adapter_unit.py",
+      "source_sha256": "de6234b3d970a3a452254cb20ea795acfcba38071a2fce9dbcb70812a8bd8692",
+      "sha256": "63531002588b77bafb7abe3686af78b809ae57adcd438e89ccb54e5946ad6312",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_memory_agent_identity.py",
+      "source_sha256": "6eff2d385cb4abfce7ba981b3fbd9465eb986d11b22859fb907ddf0872a6aaa8",
+      "sha256": "6eff2d385cb4abfce7ba981b3fbd9465eb986d11b22859fb907ddf0872a6aaa8",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_extraction.py",
+      "source_sha256": "07f32d68e6389d5a17f2e427478cc89363523d8ea7d0c61a2dc662ff39fde452",
+      "sha256": "504f9e0e7afe7517d016f6f22dcca30ac1b13c542d2b02246aef10682595cbd7",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_memory_host_configuration.py",
+      "source_sha256": "fe92a9726fc74a83e7177959e6aa7793b54f55d5102b4852e7570cc12de33743",
+      "sha256": "fe92a9726fc74a83e7177959e6aa7793b54f55d5102b4852e7570cc12de33743",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_host_policy_extraction.py",
+      "source_sha256": "1c90e9e25fd3f4a66f57bc75fd70709b6258a07ba6c20881446fa52eb646fb0d",
+      "sha256": "1c90e9e25fd3f4a66f57bc75fd70709b6258a07ba6c20881446fa52eb646fb0d",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_m5_contract.py",
+      "source_sha256": "e965ec5a5a45c6a2a379206968c84e1d169bd13dff9bf38e46a433bd1d4ac5b7",
+      "sha256": "e965ec5a5a45c6a2a379206968c84e1d169bd13dff9bf38e46a433bd1d4ac5b7",
+      "transform": "identity",
+      "provenance": "DB-883 synthetic SDK contract or offline matched efficacy preparation; no provider calls, private host imports, or model quality claim. Existing eval location retained pending DB-949."
+    },
+    {
+      "path": "tests/test_memory_mechanisms.py",
+      "source_sha256": "accee9bc8a50e88527c14d711cf0352925e092c24db6d1e0c58e1278b8da24b1",
+      "sha256": "57ac31eaa263648477e40ede334a8b716330aa6367f4c3d3c9c0d2b01b906c0a",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_memory_observation.py",
+      "source_sha256": "139d68eb9073034e526634842548a2498701f5622fa921a5dac02fa562af5214",
+      "sha256": "799046a29e2cede79c78eac264ba125833bfa6eca3dc954f9d7f8dd9b8d7396c",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_memory_priming.py",
+      "source_sha256": "d1af92bae68e9e11c0b4ee695402e37c7cc8d81415bb5d151dd1ff17bc4aa350",
+      "sha256": "c4f9fdf2490837135e1b326f1725a1156c611a6a08819ee68f4e362cb9054899",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_memory_priming_record_access.py",
+      "source_sha256": "90e47f97e473ec2befe6bd1f94491d2ee47448cc57ef55ca540ec6c567ce25fd",
+      "sha256": "c4218d9af9159b50b147f177f70a305ef6ab52081604493ef9d1b42bb865f450",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_memory_recognition.py",
+      "source_sha256": "959947d7019cbd222afc2e99998a505cc0d9bb92c53649fdcdd2e0d739fa1542",
+      "sha256": "c9c06d75c0ec8bdbbe2b4f6546ef17ab3c8ee2fb65a2e62ad568515de3e011e1",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_memory_sdk.py",
+      "source_sha256": "940ac349e826a00f5e7a59339e972e25b102fce53e6a36aea4967b17b595d620",
+      "sha256": "f4ada1ab972c4e9581b124ff1ade7810a90ecac91aa93f02b0940442f2b00588",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_sdk_artifact_export.py",
+      "source_sha256": "9d36a30be85a280ff382c5565750d3f47b7bb9ec0183b3568fe83014e846f2c2",
+      "sha256": "9d36a30be85a280ff382c5565750d3f47b7bb9ec0183b3568fe83014e846f2c2",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_sdk_foreground.py",
+      "source_sha256": "d1b37b0a266d234abd5a653ed0fb2a636607047852efac0b3f5f5f0ef7a72e15",
+      "sha256": "f3bf30156a06f519fcb3f7e430ec482634038ade414a41bac5ddf6d62793f842",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_sdk_observability.py",
+      "source_sha256": "5a742aec7e2bfbaeeeb51fa37d4d2b7827e2b3093906d595c56cf4bc2429c86e",
+      "sha256": "ddaa726c502346cb67a842a04d74ab0720884e630ccde8fd17556ada85eec1bc",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_sdk_policy.py",
+      "source_sha256": "33a2d4790a1af7b7afbc699a853984bfb30d34607684f64fb3c4ec37c82989de",
+      "sha256": "4c7d4590cfebaa940628325b0d952f7c3535b0a92c07260e5d37ff6bbeab100e",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_memory_sdk_procedural.py",
+      "source_sha256": "7b73ca4c4499f37a397ac0fb061495e7979622f0a6e732fb5d06a6094cbeec1b",
+      "sha256": "7b73ca4c4499f37a397ac0fb061495e7979622f0a6e732fb5d06a6094cbeec1b",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_sdk_shutdown_races.py",
+      "source_sha256": "5df4ddcc66619069a5fadb0ff98d88aaa1643fe5c0ce6a5c55053c270298129d",
+      "sha256": "052eecf859e4f840235682ee743e5b279b236118bef24ef222d4101f416922de",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_sdk_telemetry.py",
+      "source_sha256": "069e3e4625df3d7f87e6a09a2480cfe21a45552e6a679bf5f4d6e72986abafb8",
+      "sha256": "3e3f9c279092154cf1c132199fe1a7e39f62f5655c3f46ae73d1ae9d32f0cfb9",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_sdk_turn.py",
+      "source_sha256": "108ba223d7fc7d96288c6b3e0428569db2597ad6ac3f217d9f612c0cc38c5b57",
+      "sha256": "108ba223d7fc7d96288c6b3e0428569db2597ad6ac3f217d9f612c0cc38c5b57",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_sdk_turn_ownership.py",
+      "source_sha256": "00526dbc2769b8f62c61941db793e91be07ac4170e4c30591189f1e28ee2c310",
+      "sha256": "00526dbc2769b8f62c61941db793e91be07ac4170e4c30591189f1e28ee2c310",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_service.py",
+      "source_sha256": "17057b231d5845408aa8d61302a864344fb946f0ea5614f2ad47d0d2eab840f6",
+      "sha256": "19af9c907845fb7b755367873193a8d64554f29edefe5eda1d375f4901024bfb",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_memory_storage_compatibility.py",
+      "source_sha256": "478863b1ebb2d5b6d8435c9838d864d1000eba61cd5124e6b6cc86f5b6e9fd72",
+      "sha256": "3ed040a44b10c9d7d1ed65947a6bc712dc8c4dbc7eeb225224529bee361eb551",
+      "transform": "storage-example-path",
+      "provenance": "Synthetic SDK compatibility contract tests; adapt repository example path to standalone layout only"
+    },
+    {
+      "path": "tests/test_memory_storage_upgrade_adversarial.py",
+      "source_sha256": "dd4901510a7f95640b4dd7fbb80bef2f34c4f26d52c7b1ea70e7c21aea799b5b",
+      "sha256": "dd4901510a7f95640b4dd7fbb80bef2f34c4f26d52c7b1ea70e7c21aea799b5b",
+      "transform": "identity",
+      "provenance": "Synthetic SDK-only read-only storage semantic drift tests"
+    },
+    {
+      "path": "tests/test_memory_types.py",
+      "source_sha256": "023a5455f12a5bbbfa2846891c0f14bfb6ba80cc4db23e4fe0a7db069575e5b1",
+      "sha256": "c2aa34c074d6a9ca3c7183289de553e20f7e020fe7a5d90228a477b6c144157f",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_memory_v2_models.py",
+      "source_sha256": "2a23b3fcefc4ab62bf25ab7a75b162d513e6e6d08a3e0de940cc879d6148515e",
+      "sha256": "379112f3413e69e7f64f3d8ba672334ff20cd402b1ee80851815dd794f72a3d5",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_merged_entity_filter.py",
+      "source_sha256": "36eaea5d115e8ca82410633b9211da8723fd188bfcf3638f75d4eee0cd9ead56",
+      "sha256": "c0fcaaa8abf496f7324e1a4a91cd809ef3677507d6ca0243b9987cdf5457498b",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_nonperson_durable_coverage.py",
+      "source_sha256": "7feaf1c33f046cd25a146f4df16cec263966d5825e31d3059371a8a772d649fe",
+      "sha256": "85d1df2aba87733fb15a65cca825134c08e697cff71587cbb97cb32c54b86182",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_participant_registry.py",
+      "source_sha256": "cdd3ab98b1fa128b74c49d74258a0600a8c98afc36d3e24e03c7dface5e72815",
+      "sha256": "94dbbe419f80164c2f9ae7d361ccc287f1204620b27e47ba25bbb59a4849867e",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_pgvector_search_ordering.py",
+      "source_sha256": "b8e82d08793e0b84ca85c25b5b5d2c670e7f19dd2f20fa64e14b32536fd57804",
+      "sha256": "665d6a54509c88508d0e04f48c5413fee9716a045d6ddd93c843740e8e790ac1",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_procedural_capture_metrics.py",
+      "source_sha256": "88670101a38c9dead6fa0a92a13aa3f7b54ad1264cf5d5fa6e270ef5a1547c3d",
+      "sha256": "88670101a38c9dead6fa0a92a13aa3f7b54ad1264cf5d5fa6e270ef5a1547c3d",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_procedural_extraction.py",
+      "source_sha256": "e81810d725cd4c76bdb575a85edca6ad83fd3dd45a47246980382f1286ffce97",
+      "sha256": "0ab65c305fc7a0c8ea3a7a0e1d1ba562ceadc267441bf9e82e32fbdd8d3eb575",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_procedural_fixtures.py",
+      "source_sha256": "ab193156008f0fbf46b3d61f5f85ebd02de29080d5770f373471b5a68fbcdbe1",
+      "sha256": "23a7e9215000048240d4fbd03a52bd056d4db8c47f05efdbd32110ac317da86d",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_procedural_liveness.py",
+      "source_sha256": "30a9608773f4135a94e79a6a240f5d6879dabaf95b084ce24d8d9e1338447e69",
+      "sha256": "3b40f874ed2c0677307ee79d7c313d7dd13f27d92fa845c933c6852bb9fca14f",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_procedural_reinforcement.py",
+      "source_sha256": "efc13ea8047074d20192723cefb59d1bdbc50d6317f8a6c25882e48ecc23ba25",
+      "sha256": "f1c022514410581b9425f0a9f89eb4e03f469f1fe37c1bd8c463095401279a67",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_procedural_serving_v2.py",
+      "source_sha256": "698a35045d2705572704f69e49a7dd9c35b452f4ea8cdbece8e453826e7b4087",
+      "sha256": "b6748ff1c2a3f746e96764e78841e1fb91950839913b75d5988e46425de4e0f7",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_relationship_classifier_prompt.py",
+      "source_sha256": "3953e7a0aa20b2af24a61dadfc554f7aca09acc42635b260505aa9018d31bf79",
+      "sha256": "2a6a71ea6cb49105116c5bf7d101109431a17e19b47776803d7b683fb2c0c823",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_relationship_validation.py",
+      "source_sha256": "ba9622103e39577dd5ab1b3b8864ec01d07e50db5568efd242164674ad6f73b4",
+      "sha256": "fcc43ddcde83fa6edcbd797cb56729563b281385a4cd722e2ed028fe1918ab2b",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_romanization.py",
+      "source_sha256": "62d8b5effccde27ac82ae2a077b4eb01dcaf247dce71216d8d66192680cc8c00",
+      "sha256": "96305d826eff653a12e08d50eb8310353b7f2068453e651ea1bb92e0ba15c242",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_rule_capture.py",
+      "source_sha256": "4016272b4cf14d3b73dcf8cc16e6305577dae938edb3cac1166b517db21b2507",
+      "sha256": "7eef21339c4e2b4fb693bd72d2e2a38dc331e9541741bd0f95b06ba850c3ed6c",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_slot_profile.py",
+      "source_sha256": "adaa6b30000f95183eb1c525faf61a0f3e99e29b87d9aafeab15f3659e670479",
+      "sha256": "8263d3009fad17a8f39eb53d79b8ab9487f18e9a18b9ff186a2076f000bf8ab8",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing complete owned unit tests; canonical imports and reviewed consistent synthetic example substitutions; original tests and assertions retained unchanged in private host."
+    },
+    {
+      "path": "tests/test_slot_summarizer.py",
+      "source_sha256": "df95eec8a609348afee16301e8362df40c58827d3dcc0ba3c109f43ebe25611b",
+      "sha256": "563d02569f1d97c11e7109df1f577ad85b835a567a849cdbe36e79127de8fd30",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_subdesign_c_inc1.py",
+      "source_sha256": "c7ad71fc1c7fde2158a5deb29f17d0195746f5fc0aea1f741c49328bdae287ea",
+      "sha256": "0f1f32ddde3e587ddf454b6a193ebb4bf16040fb56ededb0c5967fd0ebae143e",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/test_subject_attribution.py",
+      "source_sha256": "38ec413fb071570258053b8cf51f0b0b9832ebd9c6c0662baf98d801f4b64974",
+      "sha256": "fee41e0c6d63930463c2834deba8ed0575abfe340031afb3ee47a6571d8d918c",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_subject_backfill.py",
+      "source_sha256": "124706eab5dc2483aaac382b91f3dccc32ac47a8dacf975e8cba754e386d81ee",
+      "sha256": "6dabdd5fdd92899cd3462ceb00702ee56e7d633a8ff8b9373b174bca0e708b6d",
+      "transform": "reviewed-memory-tests",
+      "provenance": "Existing full mechanism unit suite: explicit canonical import aliases and reviewed consistent synthetic substitutions replace private example facts; every original test/assertion retained; host original unchanged."
+    },
+    {
+      "path": "tests/test_tier0_shadow_probe.py",
+      "source_sha256": "24160d3bab48d3b28bead563b463a00a57e43afa1ce094b4bca3c8bfe45b34b7",
+      "sha256": "5f6feda935262c20ede0d2192a1269477c6bb4fc90367c39156e8662b410f1dc",
+      "transform": "reviewed-additional-memory-tests",
+      "provenance": "Reviewed synthetic mechanism tests; portable assertions preserved, exact host-only exclusions recorded in provenance; private source tests and fixtures retained unchanged"
+    },
+    {
+      "path": "tests/memory_test_generation.py",
+      "sha256": "bac2238b8650f12764d6b8979bbd10a6f389f264b6caf6f7a7f91e072dfe10ae",
+      "provenance": "DB-884 generated synthetic candidate support"
+    },
+    {
+      "path": "tests/fixtures/procedural/e0_capture_fixtures.json",
+      "sha256": "45349fb8b1e8e6b92735bc1086c980e83447d8ae30d11a5cad5946334d9469a3",
+      "provenance": "DB-884 generated synthetic candidate support"
+    },
+    {
+      "path": "tests/fixtures/procedural/e9_retrieval_set.json",
+      "sha256": "1e24a15be479ae859508def3c5f351f1576052d0779a86a028e5f82a3023c157",
+      "provenance": "DB-884 generated synthetic candidate support"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ff464b8f9be6eefb6d70ed3675d4271a9326443cff0e7c52eabd187731c4fd1b",
+      "provenance": "DB-884 generated synthetic candidate support"
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha256": "8efd99043acd94f6b4ec75aac0a92d5ea85b450044a8f08de82a9506ba6aefbe",
+      "provenance": "DB-884 generated synthetic candidate support"
+    },
+    {
+      "path": "tests/memory_test_support.py",
+      "sha256": "484f2c05e8b800420ef8bafebcecb3dca075bee25ff82d783cfcb8272c27f1e0",
+      "provenance": "DB-884 generated synthetic candidate support"
+    },
+    {
+      "path": ".github/workflows/test.yml",
+      "sha256": "aa11da264771f13e62358a51b49ef216ebfdd0dbcc4e9d85c45d32a26587c15a",
+      "provenance": "DB-884 generated synthetic candidate support"
+    },
+    {
+      "path": "requirements-test.txt",
+      "sha256": "7822714a1b3b1b38ab8f6329326871d78177fbe0d55d5cba172105bc9659fb40",
+      "provenance": "DB-884 generated synthetic candidate support"
+    },
+    {
+      "path": "MANIFEST.in",
+      "sha256": "3379fea3e7358ec4a6990ca4b1e8a6ae13d4ff431fc167d2b09cd986a6d99567",
+      "provenance": "DB-884 generated synthetic candidate support"
+    },
+    {
+      "path": "pytest.ini",
+      "sha256": "da9808d584f4d7bf9f89efb0e294727a7abd06903d9ae8fbc45f5dd93c59b684",
+      "provenance": "DB-884 generated synthetic candidate support"
+    }
+  ]
+}

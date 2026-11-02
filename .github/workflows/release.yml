@@ -1,0 +1,52 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  proof:
+    uses: ./.github/workflows/test.yml
+  publish:
+    needs: proof
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: recoleva-proof
+          path: rehearsal
+      - name: Verify release identity and checksums
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main
+          python - <<'PYCODE'
+          import hashlib, json, os, pathlib, tomllib
+          root = pathlib.Path('rehearsal')
+          receipt = json.loads((root/'reports/release.json').read_text())
+          version = tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']['version']
+          assert os.environ['TAG'] == 'v' + version == 'v' + receipt['version']
+          assert receipt['source_commit'] == os.environ['GITHUB_SHA']
+          for artifact in receipt['artifacts'].values():
+              path = root/'dist'/artifact['filename']
+              assert hashlib.sha256(path.read_bytes()).hexdigest() == artifact['sha256']
+          receipt_archive = root/'reports'/receipt['proof_receipts']['filename']
+          assert hashlib.sha256(receipt_archive.read_bytes()).hexdigest() == receipt['proof_receipts']['sha256']
+          PYCODE
+      - name: Publish tested artifacts without rebuilding
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Refusing to replace an existing release" >&2
+            exit 1
+          fi
+          gh release create "$TAG" --verify-tag --title "Recoleva $TAG" \
+            --notes "Portable SDK release. See release.json for exact source/artifact identity and deterministic contract evidence. Model quality and learning efficacy are unmeasured." \
+            rehearsal/dist/* rehearsal/reports/release.json rehearsal/reports/SHA256SUMS rehearsal/reports/proof-receipts.tar.gz

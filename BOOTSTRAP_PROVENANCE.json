@@ -1,0 +1,14 @@
+{
+  "format": "recoleva-bootstrap/v1",
+  "distribution": "recoleva",
+  "version": "0.3.0",
+  "import_namespace": "kai_memory",
+  "license": "GPL-3.0-or-later",
+  "upstream_source_commit": "f5ad5b936d18f87da20ba2a7966d7d7482d386b5",
+  "source_history_copied": false,
+  "initial_export_receipt": "EXPORT_PROVENANCE.json",
+  "tracking": "DB-884",
+  "reviewed_source_files_preserved": 186,
+  "public_metadata_and_release_tooling_added": true,
+  "quality_claim": "deterministic contracts only; no model-quality or learning-efficacy claim"
+}

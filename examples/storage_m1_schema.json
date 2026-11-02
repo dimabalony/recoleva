@@ -1,0 +1,2791 @@
+{
+  "source_commit": "c08ca8fbb1f6217e0116be390659ec52715c1280",
+  "tables": {
+    "agent_memory": {
+      "checks": [],
+      "columns": {
+        "category": [
+          "VARCHAR(50)",
+          false
+        ],
+        "content": [
+          "TEXT",
+          false
+        ],
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "embedding": [
+          "VECTOR(1536)",
+          true
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "key": [
+          "VARCHAR(200)",
+          false
+        ],
+        "memory_metadata": [
+          "JSONB",
+          false
+        ],
+        "priority": [
+          "INTEGER",
+          false
+        ],
+        "source": [
+          "VARCHAR(100)",
+          true
+        ],
+        "updated_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ]
+      },
+      "foreign_keys": [],
+      "indexes": {
+        "idx_agent_memory_category": [
+          false,
+          [
+            [
+              "atom",
+              "category"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_agent_memory_key": [
+          true,
+          [
+            [
+              "atom",
+              "category"
+            ],
+            [
+              "atom",
+              "key"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_agent_memory_priority": [
+          false,
+          [
+            [
+              "atom",
+              "priority"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "category": null,
+        "content": null,
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "embedding": null,
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "key": null,
+        "memory_metadata": [
+          "cast jsonb",
+          [
+            "literal",
+            "'{}'"
+          ]
+        ],
+        "priority": null,
+        "source": null,
+        "updated_at": [
+          "call",
+          "now",
+          []
+        ]
+      },
+      "unique": []
+    },
+    "cognitive_config": {
+      "checks": [],
+      "columns": {
+        "category": [
+          "VARCHAR(30)",
+          false
+        ],
+        "description": [
+          "TEXT",
+          true
+        ],
+        "key": [
+          "VARCHAR(50)",
+          false
+        ],
+        "updated_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "value": [
+          "DOUBLE PRECISION",
+          false
+        ]
+      },
+      "foreign_keys": [],
+      "indexes": {},
+      "primary_key": [
+        "key"
+      ],
+      "server_defaults": {
+        "category": null,
+        "description": null,
+        "key": null,
+        "updated_at": [
+          "call",
+          "now",
+          []
+        ],
+        "value": null
+      },
+      "unique": []
+    },
+    "confusion_set_members": {
+      "checks": [],
+      "columns": {
+        "confusion_set_id": [
+          "UUID",
+          false
+        ],
+        "contrastive_features": [
+          "JSONB",
+          false
+        ],
+        "entity_id": [
+          "UUID",
+          false
+        ]
+      },
+      "foreign_keys": [
+        [
+          [
+            "confusion_set_id"
+          ],
+          "confusion_sets",
+          "public",
+          [
+            "id"
+          ],
+          "CASCADE",
+          null,
+          false,
+          null,
+          null
+        ],
+        [
+          [
+            "entity_id"
+          ],
+          "memory_entities",
+          "public",
+          [
+            "id"
+          ],
+          "CASCADE",
+          null,
+          false,
+          null,
+          null
+        ]
+      ],
+      "indexes": {
+        "idx_conf_members_entity": [
+          false,
+          [
+            [
+              "atom",
+              "entity_id"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "confusion_set_id",
+        "entity_id"
+      ],
+      "server_defaults": {
+        "confusion_set_id": null,
+        "contrastive_features": [
+          "cast jsonb",
+          [
+            "literal",
+            "'{}'"
+          ]
+        ],
+        "entity_id": null
+      },
+      "unique": []
+    },
+    "confusion_sets": {
+      "checks": [],
+      "columns": {
+        "confusion_source": [
+          "VARCHAR(30)",
+          true
+        ],
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "entity_type": [
+          "VARCHAR(30)",
+          false
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "last_affirmed_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "name": [
+          "VARCHAR(200)",
+          true
+        ],
+        "rationale": [
+          "TEXT",
+          true
+        ],
+        "updated_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ]
+      },
+      "foreign_keys": [],
+      "indexes": {},
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "confusion_source": null,
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "entity_type": null,
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "last_affirmed_at": null,
+        "name": null,
+        "rationale": null,
+        "updated_at": [
+          "call",
+          "now",
+          []
+        ]
+      },
+      "unique": []
+    },
+    "consolidation_run_rollbacks": {
+      "checks": [],
+      "columns": {
+        "id": [
+          "UUID",
+          false
+        ],
+        "inverse_actions": [
+          "JSONB",
+          false
+        ],
+        "reason": [
+          "TEXT",
+          true
+        ],
+        "rolled_back_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "rolled_back_by": [
+          "VARCHAR(100)",
+          false
+        ],
+        "run_id": [
+          "UUID",
+          false
+        ]
+      },
+      "foreign_keys": [
+        [
+          [
+            "run_id"
+          ],
+          "consolidation_runs",
+          "public",
+          [
+            "id"
+          ],
+          "CASCADE",
+          null,
+          false,
+          null,
+          null
+        ]
+      ],
+      "indexes": {
+        "idx_run_rollbacks_run": [
+          false,
+          [
+            [
+              "atom",
+              "run_id"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_run_rollbacks_when": [
+          false,
+          [
+            [
+              "atom",
+              "rolled_back_at"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "inverse_actions": [
+          "cast jsonb",
+          [
+            "literal",
+            "'[]'"
+          ]
+        ],
+        "reason": null,
+        "rolled_back_at": [
+          "call",
+          "now",
+          []
+        ],
+        "rolled_back_by": null,
+        "run_id": null
+      },
+      "unique": []
+    },
+    "consolidation_runs": {
+      "checks": [],
+      "columns": {
+        "changes_made": [
+          "JSONB",
+          false
+        ],
+        "completed_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "error_message": [
+          "TEXT",
+          true
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "level": [
+          "SMALLINT",
+          false
+        ],
+        "run_metadata": [
+          "JSONB",
+          false
+        ],
+        "started_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "status": [
+          "VARCHAR(20)",
+          false
+        ],
+        "traces_processed": [
+          "INTEGER",
+          false
+        ]
+      },
+      "foreign_keys": [],
+      "indexes": {
+        "idx_consolrun_level": [
+          false,
+          [
+            [
+              "atom",
+              "level"
+            ],
+            [
+              "atom",
+              "started_at"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "changes_made": [
+          "cast jsonb",
+          [
+            "literal",
+            "'[]'"
+          ]
+        ],
+        "completed_at": null,
+        "error_message": null,
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "level": null,
+        "run_metadata": [
+          "cast jsonb",
+          [
+            "literal",
+            "'{}'"
+          ]
+        ],
+        "started_at": [
+          "call",
+          "now",
+          []
+        ],
+        "status": null,
+        "traces_processed": null
+      },
+      "unique": []
+    },
+    "entity_merge_candidates": {
+      "checks": [],
+      "columns": {
+        "confidence": [
+          "DOUBLE PRECISION",
+          false
+        ],
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "entity_a_id": [
+          "UUID",
+          false
+        ],
+        "entity_b_id": [
+          "UUID",
+          false
+        ],
+        "evidence_trace_ids": [
+          "UUID[]",
+          true
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "reason": [
+          "TEXT",
+          true
+        ],
+        "reviewed_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "source_consolidation_run_id": [
+          "UUID",
+          true
+        ],
+        "source_relationship_id": [
+          "UUID",
+          true
+        ],
+        "status": [
+          "VARCHAR(20)",
+          false
+        ]
+      },
+      "foreign_keys": [
+        [
+          [
+            "entity_a_id"
+          ],
+          "memory_entities",
+          "public",
+          [
+            "id"
+          ],
+          null,
+          null,
+          false,
+          null,
+          null
+        ],
+        [
+          [
+            "entity_b_id"
+          ],
+          "memory_entities",
+          "public",
+          [
+            "id"
+          ],
+          null,
+          null,
+          false,
+          null,
+          null
+        ],
+        [
+          [
+            "source_consolidation_run_id"
+          ],
+          "consolidation_runs",
+          "public",
+          [
+            "id"
+          ],
+          "SET NULL",
+          null,
+          false,
+          null,
+          null
+        ],
+        [
+          [
+            "source_relationship_id"
+          ],
+          "entity_relationships",
+          "public",
+          [
+            "id"
+          ],
+          null,
+          null,
+          false,
+          null,
+          null
+        ]
+      ],
+      "indexes": {},
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "confidence": [
+          "numeric constant",
+          "0.5"
+        ],
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "entity_a_id": null,
+        "entity_b_id": null,
+        "evidence_trace_ids": null,
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "reason": null,
+        "reviewed_at": null,
+        "source_consolidation_run_id": null,
+        "source_relationship_id": null,
+        "status": [
+          "literal",
+          "'pending'"
+        ]
+      },
+      "unique": []
+    },
+    "entity_relationships": {
+      "checks": [],
+      "columns": {
+        "confidence": [
+          "DOUBLE PRECISION",
+          false
+        ],
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "description": [
+          "TEXT",
+          true
+        ],
+        "from_entity_id": [
+          "UUID",
+          false
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "relationship_type": [
+          "VARCHAR(50)",
+          false
+        ],
+        "source_memory_id": [
+          "UUID",
+          true
+        ],
+        "to_entity_id": [
+          "UUID",
+          false
+        ],
+        "updated_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "valid_from": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "valid_until": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ]
+      },
+      "foreign_keys": [
+        [
+          [
+            "from_entity_id"
+          ],
+          "memory_entities",
+          "public",
+          [
+            "id"
+          ],
+          null,
+          null,
+          false,
+          null,
+          null
+        ],
+        [
+          [
+            "source_memory_id"
+          ],
+          "memory_traces",
+          "public",
+          [
+            "id"
+          ],
+          null,
+          null,
+          false,
+          null,
+          null
+        ],
+        [
+          [
+            "to_entity_id"
+          ],
+          "memory_entities",
+          "public",
+          [
+            "id"
+          ],
+          null,
+          null,
+          false,
+          null,
+          null
+        ]
+      ],
+      "indexes": {
+        "idx_er_from": [
+          false,
+          [
+            [
+              "atom",
+              "from_entity_id"
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "valid_until"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_er_from_type": [
+          false,
+          [
+            [
+              "atom",
+              "from_entity_id"
+            ],
+            [
+              "atom",
+              "relationship_type"
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "valid_until"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_er_to": [
+          false,
+          [
+            [
+              "atom",
+              "to_entity_id"
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "valid_until"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_er_to_type": [
+          false,
+          [
+            [
+              "atom",
+              "to_entity_id"
+            ],
+            [
+              "atom",
+              "relationship_type"
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "valid_until"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "confidence": null,
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "description": null,
+        "from_entity_id": null,
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "relationship_type": null,
+        "source_memory_id": null,
+        "to_entity_id": null,
+        "updated_at": [
+          "call",
+          "now",
+          []
+        ],
+        "valid_from": null,
+        "valid_until": null
+      },
+      "unique": []
+    },
+    "execution_traces": {
+      "checks": [],
+      "columns": {
+        "conversation_ref": [
+          "TEXT",
+          true
+        ],
+        "cost_tokens": [
+          "INTEGER",
+          false
+        ],
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "how_measured": [
+          "TEXT",
+          true
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "outcome": [
+          "VARCHAR(20)",
+          false
+        ],
+        "source_user_id": [
+          "BIGINT",
+          true
+        ],
+        "steps": [
+          "JSONB",
+          false
+        ],
+        "success_signals": [
+          "JSONB",
+          false
+        ],
+        "task_embedding": [
+          "VECTOR(1536)",
+          true
+        ],
+        "task_signature": [
+          "TEXT",
+          false
+        ]
+      },
+      "foreign_keys": [],
+      "indexes": {
+        "idx_exec_traces_created": [
+          false,
+          [
+            [
+              "atom",
+              "created_at"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_exec_traces_serving": [
+          false,
+          [
+            [
+              "atom",
+              "task_signature"
+            ],
+            [
+              "atom",
+              "source_user_id"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_exec_traces_unembedded": [
+          false,
+          [
+            [
+              "atom",
+              "created_at"
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "task_embedding"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "conversation_ref": null,
+        "cost_tokens": null,
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "how_measured": null,
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "outcome": null,
+        "source_user_id": null,
+        "steps": [
+          "cast jsonb",
+          [
+            "literal",
+            "'[]'"
+          ]
+        ],
+        "success_signals": [
+          "cast jsonb",
+          [
+            "literal",
+            "'{}'"
+          ]
+        ],
+        "task_embedding": null,
+        "task_signature": null
+      },
+      "unique": []
+    },
+    "memory_artifacts": {
+      "checks": [
+        [
+          "in",
+          [
+            "atom",
+            "status"
+          ],
+          [
+            [
+              "literal",
+              "'active'"
+            ],
+            [
+              "literal",
+              "'superseded'"
+            ],
+            [
+              "literal",
+              "'expired'"
+            ],
+            [
+              "literal",
+              "'permanent'"
+            ]
+          ]
+        ]
+      ],
+      "columns": {
+        "artifact_type": [
+          "VARCHAR(50)",
+          false
+        ],
+        "content_hash": [
+          "VARCHAR(64)",
+          false
+        ],
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "dimension": [
+          "VARCHAR(100)",
+          true
+        ],
+        "expires_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "payload": [
+          "JSONB",
+          false
+        ],
+        "produced_by_run_id": [
+          "UUID",
+          true
+        ],
+        "producer_name": [
+          "VARCHAR(100)",
+          false
+        ],
+        "producer_version": [
+          "INTEGER",
+          false
+        ],
+        "schema_version": [
+          "INTEGER",
+          false
+        ],
+        "status": [
+          "VARCHAR(20)",
+          false
+        ],
+        "subject_entity_id": [
+          "UUID",
+          true
+        ],
+        "superseded_by_id": [
+          "UUID",
+          true
+        ],
+        "supersedes_id": [
+          "UUID",
+          true
+        ],
+        "t_valid_from": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "t_valid_until": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ]
+      },
+      "foreign_keys": [
+        [
+          [
+            "produced_by_run_id"
+          ],
+          "consolidation_runs",
+          "public",
+          [
+            "id"
+          ],
+          "SET NULL",
+          null,
+          false,
+          null,
+          null
+        ],
+        [
+          [
+            "subject_entity_id"
+          ],
+          "memory_entities",
+          "public",
+          [
+            "id"
+          ],
+          "CASCADE",
+          null,
+          false,
+          null,
+          null
+        ],
+        [
+          [
+            "superseded_by_id"
+          ],
+          "memory_artifacts",
+          "public",
+          [
+            "id"
+          ],
+          "SET NULL",
+          null,
+          true,
+          "DEFERRED",
+          null
+        ],
+        [
+          [
+            "supersedes_id"
+          ],
+          "memory_artifacts",
+          "public",
+          [
+            "id"
+          ],
+          "SET NULL",
+          null,
+          false,
+          null,
+          null
+        ]
+      ],
+      "indexes": {
+        "idx_artifacts_active_type": [
+          false,
+          [
+            [
+              "atom",
+              "artifact_type"
+            ],
+            [
+              "atom",
+              "subject_entity_id"
+            ]
+          ],
+          [
+            "=",
+            [
+              "atom",
+              "status"
+            ],
+            [
+              "literal",
+              "'active'"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_artifacts_content_hash": [
+          false,
+          [
+            [
+              "atom",
+              "content_hash"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_artifacts_expires": [
+          false,
+          [
+            [
+              "atom",
+              "expires_at"
+            ]
+          ],
+          [
+            "and",
+            [
+              "<>",
+              [
+                "atom",
+                "status"
+              ],
+              [
+                "literal",
+                "'expired'"
+              ]
+            ],
+            [
+              "is not null",
+              [
+                "atom",
+                "expires_at"
+              ]
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_artifacts_one_active": [
+          true,
+          [
+            [
+              "atom",
+              "artifact_type"
+            ],
+            [
+              "atom",
+              "subject_entity_id"
+            ],
+            [
+              "call",
+              "coalesce",
+              [
+                [
+                  "atom",
+                  "dimension"
+                ],
+                [
+                  "literal",
+                  "''"
+                ]
+              ]
+            ]
+          ],
+          [
+            "=",
+            [
+              "atom",
+              "status"
+            ],
+            [
+              "literal",
+              "'active'"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_artifacts_produced_by_run": [
+          false,
+          [
+            [
+              "atom",
+              "produced_by_run_id"
+            ]
+          ],
+          [
+            "is not null",
+            [
+              "atom",
+              "produced_by_run_id"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "artifact_type": null,
+        "content_hash": null,
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "dimension": null,
+        "expires_at": null,
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "payload": null,
+        "produced_by_run_id": null,
+        "producer_name": null,
+        "producer_version": [
+          "numeric constant",
+          "1"
+        ],
+        "schema_version": [
+          "numeric constant",
+          "1"
+        ],
+        "status": [
+          "literal",
+          "'active'"
+        ],
+        "subject_entity_id": null,
+        "superseded_by_id": null,
+        "supersedes_id": null,
+        "t_valid_from": null,
+        "t_valid_until": null
+      },
+      "unique": []
+    },
+    "memory_entities": {
+      "checks": [],
+      "columns": {
+        "aliases": [
+          "JSONB",
+          false
+        ],
+        "canonical_key": [
+          "VARCHAR(200)",
+          true
+        ],
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "data": [
+          "JSONB",
+          false
+        ],
+        "embedding": [
+          "VECTOR(1536)",
+          true
+        ],
+        "entity_type": [
+          "VARCHAR(30)",
+          false
+        ],
+        "first_seen_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "last_mentioned_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "mention_count": [
+          "INTEGER",
+          false
+        ],
+        "merge_reason": [
+          "TEXT",
+          true
+        ],
+        "merged_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "merged_into_id": [
+          "UUID",
+          true
+        ],
+        "name": [
+          "VARCHAR(200)",
+          false
+        ],
+        "namespace": [
+          "VARCHAR(100)",
+          true
+        ],
+        "ranking_score": [
+          "INTEGER",
+          false
+        ],
+        "summary": [
+          "TEXT",
+          true
+        ],
+        "telegram_user_id": [
+          "BIGINT",
+          true
+        ],
+        "updated_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ]
+      },
+      "foreign_keys": [
+        [
+          [
+            "merged_into_id"
+          ],
+          "memory_entities",
+          "public",
+          [
+            "id"
+          ],
+          null,
+          null,
+          false,
+          null,
+          null
+        ]
+      ],
+      "indexes": {
+        "idx_memory_entities_ranking_score": [
+          false,
+          [
+            [
+              "desc",
+              [
+                "atom",
+                "ranking_score"
+              ]
+            ],
+            [
+              "atom",
+              "id"
+            ]
+          ],
+          [
+            "is not null",
+            [
+              "atom",
+              "summary"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mentity_aliases_gin": [
+          false,
+          [
+            [
+              "atom",
+              "aliases"
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "merged_into_id"
+            ]
+          ],
+          "gin",
+          [
+            [
+              "aliases",
+              "jsonb_path_ops"
+            ]
+          ],
+          [],
+          [],
+          null
+        ],
+        "idx_mentity_aliases_lower_gin": [
+          false,
+          [
+            [
+              "call",
+              "aliases_lower",
+              [
+                [
+                  "atom",
+                  "aliases"
+                ]
+              ]
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "merged_into_id"
+            ]
+          ],
+          "gin",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mentity_lower_name_active": [
+          false,
+          [
+            [
+              "call",
+              "lower",
+              [
+                [
+                  "atom",
+                  "name"
+                ]
+              ]
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "merged_into_id"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mentity_name_active": [
+          false,
+          [
+            [
+              "atom",
+              "name"
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "merged_into_id"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mentity_tg_user": [
+          true,
+          [
+            [
+              "atom",
+              "telegram_user_id"
+            ]
+          ],
+          [
+            "is not null",
+            [
+              "atom",
+              "telegram_user_id"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mentity_type": [
+          false,
+          [
+            [
+              "atom",
+              "entity_type"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mentity_type_canonical_key": [
+          false,
+          [
+            [
+              "atom",
+              "entity_type"
+            ],
+            [
+              "atom",
+              "canonical_key"
+            ]
+          ],
+          [
+            "is not null",
+            [
+              "atom",
+              "canonical_key"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mentity_type_name_null_tg": [
+          true,
+          [
+            [
+              "atom",
+              "entity_type"
+            ],
+            [
+              "atom",
+              "name"
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "telegram_user_id"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "aliases": [
+          "cast jsonb",
+          [
+            "literal",
+            "'[]'"
+          ]
+        ],
+        "canonical_key": null,
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "data": [
+          "cast jsonb",
+          [
+            "literal",
+            "'{}'"
+          ]
+        ],
+        "embedding": null,
+        "entity_type": null,
+        "first_seen_at": [
+          "call",
+          "now",
+          []
+        ],
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "last_mentioned_at": null,
+        "mention_count": null,
+        "merge_reason": null,
+        "merged_at": null,
+        "merged_into_id": null,
+        "name": null,
+        "namespace": null,
+        "ranking_score": [
+          "numeric constant",
+          "0"
+        ],
+        "summary": null,
+        "telegram_user_id": null,
+        "updated_at": [
+          "call",
+          "now",
+          []
+        ]
+      },
+      "unique": []
+    },
+    "memory_entity_links": {
+      "checks": [],
+      "columns": {
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "entity_id": [
+          "UUID",
+          false
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "memory_id": [
+          "UUID",
+          false
+        ],
+        "role": [
+          "VARCHAR(20)",
+          false
+        ]
+      },
+      "foreign_keys": [
+        [
+          [
+            "entity_id"
+          ],
+          "memory_entities",
+          "public",
+          [
+            "id"
+          ],
+          null,
+          null,
+          false,
+          null,
+          null
+        ],
+        [
+          [
+            "memory_id"
+          ],
+          "memory_traces",
+          "public",
+          [
+            "id"
+          ],
+          null,
+          null,
+          false,
+          null,
+          null
+        ]
+      ],
+      "indexes": {
+        "idx_mel_entity": [
+          false,
+          [
+            [
+              "atom",
+              "entity_id"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mel_memory": [
+          false,
+          [
+            [
+              "atom",
+              "memory_id"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "entity_id": null,
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "memory_id": null,
+        "role": null
+      },
+      "unique": [
+        [
+          [
+            "memory_id",
+            "entity_id",
+            "role"
+          ],
+          false
+        ]
+      ]
+    },
+    "memory_traces": {
+      "checks": [],
+      "columns": {
+        "access_count": [
+          "INTEGER",
+          false
+        ],
+        "access_timestamps": [
+          "JSONB",
+          false
+        ],
+        "consolidated_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "content": [
+          "TEXT",
+          false
+        ],
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "embedding": [
+          "VECTOR(1536)",
+          true
+        ],
+        "emotion_arousal": [
+          "DOUBLE PRECISION",
+          true
+        ],
+        "emotion_valence": [
+          "DOUBLE PRECISION",
+          true
+        ],
+        "encoding_signals": [
+          "JSONB",
+          false
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "initial_salience": [
+          "DOUBLE PRECISION",
+          false
+        ],
+        "invalidated_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "invalidated_by": [
+          "UUID",
+          true
+        ],
+        "invalidation_confidence": [
+          "DOUBLE PRECISION",
+          true
+        ],
+        "invalidation_source": [
+          "TEXT",
+          true
+        ],
+        "last_accessed_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "memory_type": [
+          "VARCHAR(30)",
+          false
+        ],
+        "representations": [
+          "JSONB",
+          false
+        ],
+        "salience": [
+          "DOUBLE PRECISION",
+          false
+        ],
+        "significance": [
+          "SMALLINT",
+          false
+        ],
+        "source_chat_id": [
+          "BIGINT",
+          true
+        ],
+        "source_confidence": [
+          "DOUBLE PRECISION",
+          true
+        ],
+        "source_path": [
+          "TEXT",
+          true
+        ],
+        "source_topic_id": [
+          "INTEGER",
+          true
+        ],
+        "source_type": [
+          "VARCHAR(20)",
+          false
+        ],
+        "source_user_id": [
+          "BIGINT",
+          true
+        ],
+        "typed_metadata": [
+          "JSONB",
+          false
+        ],
+        "updated_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ]
+      },
+      "foreign_keys": [
+        [
+          [
+            "invalidated_by"
+          ],
+          "memory_traces",
+          "public",
+          [
+            "id"
+          ],
+          null,
+          null,
+          false,
+          null,
+          null
+        ]
+      ],
+      "indexes": {
+        "idx_mt_consolidated": [
+          false,
+          [
+            [
+              "atom",
+              "consolidated_at"
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "invalidated_at"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mt_created": [
+          false,
+          [
+            [
+              "atom",
+              "created_at"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mt_embedding": [
+          false,
+          [
+            [
+              "atom",
+              "embedding"
+            ]
+          ],
+          null,
+          "hnsw",
+          [
+            [
+              "embedding",
+              "vector_cosine_ops"
+            ]
+          ],
+          [],
+          [],
+          null
+        ],
+        "idx_mt_invalidated_by": [
+          false,
+          [
+            [
+              "atom",
+              "invalidated_by"
+            ]
+          ],
+          [
+            "is not null",
+            [
+              "atom",
+              "invalidated_by"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mt_salience": [
+          false,
+          [
+            [
+              "atom",
+              "salience"
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "invalidated_at"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mt_source_chat": [
+          false,
+          [
+            [
+              "atom",
+              "source_chat_id"
+            ],
+            [
+              "atom",
+              "source_topic_id"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_mt_type": [
+          false,
+          [
+            [
+              "atom",
+              "memory_type"
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "invalidated_at"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "ix_memory_traces_durability_marker": [
+          false,
+          [
+            [
+              "->>",
+              [
+                "atom",
+                "typed_metadata"
+              ],
+              [
+                "literal",
+                "'durability'"
+              ]
+            ]
+          ],
+          [
+            "in",
+            [
+              "->>",
+              [
+                "atom",
+                "typed_metadata"
+              ],
+              [
+                "literal",
+                "'durability'"
+              ]
+            ],
+            [
+              [
+                "literal",
+                "'durable'"
+              ],
+              [
+                "literal",
+                "'superseded'"
+              ]
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "access_count": null,
+        "access_timestamps": [
+          "cast jsonb",
+          [
+            "literal",
+            "'[]'"
+          ]
+        ],
+        "consolidated_at": null,
+        "content": null,
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "embedding": null,
+        "emotion_arousal": null,
+        "emotion_valence": null,
+        "encoding_signals": [
+          "cast jsonb",
+          [
+            "literal",
+            "'{}'"
+          ]
+        ],
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "initial_salience": null,
+        "invalidated_at": null,
+        "invalidated_by": null,
+        "invalidation_confidence": null,
+        "invalidation_source": null,
+        "last_accessed_at": null,
+        "memory_type": null,
+        "representations": [
+          "cast jsonb",
+          [
+            "literal",
+            "'[]'"
+          ]
+        ],
+        "salience": null,
+        "significance": null,
+        "source_chat_id": null,
+        "source_confidence": null,
+        "source_path": null,
+        "source_topic_id": null,
+        "source_type": null,
+        "source_user_id": null,
+        "typed_metadata": [
+          "cast jsonb",
+          [
+            "literal",
+            "'{}'"
+          ]
+        ],
+        "updated_at": [
+          "call",
+          "now",
+          []
+        ]
+      },
+      "unique": []
+    },
+    "retrieval_config": {
+      "checks": [],
+      "columns": {
+        "adjustment_history": [
+          "JSONB",
+          false
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "updated_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "weight_access": [
+          "DOUBLE PRECISION",
+          false
+        ],
+        "weight_arousal": [
+          "DOUBLE PRECISION",
+          false
+        ],
+        "weight_graph": [
+          "DOUBLE PRECISION",
+          false
+        ],
+        "weight_intention": [
+          "DOUBLE PRECISION",
+          false
+        ],
+        "weight_recency": [
+          "DOUBLE PRECISION",
+          false
+        ],
+        "weight_salience": [
+          "DOUBLE PRECISION",
+          false
+        ],
+        "weight_semantic": [
+          "DOUBLE PRECISION",
+          false
+        ]
+      },
+      "foreign_keys": [],
+      "indexes": {},
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "adjustment_history": [
+          "cast jsonb",
+          [
+            "literal",
+            "'[]'"
+          ]
+        ],
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "updated_at": [
+          "call",
+          "now",
+          []
+        ],
+        "weight_access": null,
+        "weight_arousal": null,
+        "weight_graph": null,
+        "weight_intention": [
+          "numeric constant",
+          "0.15"
+        ],
+        "weight_recency": null,
+        "weight_salience": [
+          "numeric constant",
+          "0"
+        ],
+        "weight_semantic": null
+      },
+      "unique": []
+    },
+    "social_contexts": {
+      "checks": [],
+      "columns": {
+        "chat_id": [
+          "BIGINT",
+          false
+        ],
+        "context_name": [
+          "VARCHAR(100)",
+          true
+        ],
+        "context_type": [
+          "VARCHAR(20)",
+          false
+        ],
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "last_active_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "participants": [
+          "JSONB",
+          true
+        ],
+        "social_norms": [
+          "TEXT",
+          true
+        ],
+        "topic_id": [
+          "INTEGER",
+          true
+        ],
+        "updated_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ]
+      },
+      "foreign_keys": [],
+      "indexes": {
+        "idx_social_ctx_private": [
+          true,
+          [
+            [
+              "atom",
+              "chat_id"
+            ]
+          ],
+          [
+            "is null",
+            [
+              "atom",
+              "topic_id"
+            ]
+          ],
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "chat_id": null,
+        "context_name": null,
+        "context_type": null,
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "last_active_at": null,
+        "participants": null,
+        "social_norms": null,
+        "topic_id": null,
+        "updated_at": [
+          "call",
+          "now",
+          []
+        ]
+      },
+      "unique": [
+        [
+          [
+            "chat_id",
+            "topic_id"
+          ],
+          false
+        ]
+      ]
+    },
+    "social_experiences": {
+      "checks": [],
+      "columns": {
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "experience": [
+          "TEXT",
+          false
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "learned_norm": [
+          "TEXT",
+          true
+        ],
+        "salience": [
+          "DOUBLE PRECISION",
+          false
+        ],
+        "signal_type": [
+          "VARCHAR(20)",
+          true
+        ],
+        "social_context_id": [
+          "UUID",
+          false
+        ]
+      },
+      "foreign_keys": [
+        [
+          [
+            "social_context_id"
+          ],
+          "social_contexts",
+          "public",
+          [
+            "id"
+          ],
+          null,
+          null,
+          false,
+          null,
+          null
+        ]
+      ],
+      "indexes": {
+        "idx_socexp_context": [
+          false,
+          [
+            [
+              "atom",
+              "social_context_id"
+            ],
+            [
+              "atom",
+              "salience"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "experience": null,
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "learned_norm": null,
+        "salience": null,
+        "signal_type": null,
+        "social_context_id": null
+      },
+      "unique": []
+    },
+    "trace_inhibitions": {
+      "checks": [
+        [
+          "<>",
+          [
+            "atom",
+            "winner_trace_id"
+          ],
+          [
+            "atom",
+            "loser_trace_id"
+          ]
+        ],
+        [
+          "and",
+          [
+            ">",
+            [
+              "atom",
+              "strength"
+            ],
+            [
+              "atom",
+              "0.0"
+            ]
+          ],
+          [
+            "<=",
+            [
+              "atom",
+              "strength"
+            ],
+            [
+              "atom",
+              "0.5"
+            ]
+          ]
+        ]
+      ],
+      "columns": {
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "loser_trace_id": [
+          "UUID",
+          false
+        ],
+        "strength": [
+          "DOUBLE PRECISION",
+          false
+        ],
+        "suppressed_until": [
+          "TIMESTAMP WITH TIME ZONE",
+          true
+        ],
+        "winner_trace_id": [
+          "UUID",
+          false
+        ]
+      },
+      "foreign_keys": [
+        [
+          [
+            "loser_trace_id"
+          ],
+          "memory_traces",
+          "public",
+          [
+            "id"
+          ],
+          "CASCADE",
+          null,
+          false,
+          null,
+          null
+        ],
+        [
+          [
+            "winner_trace_id"
+          ],
+          "memory_traces",
+          "public",
+          [
+            "id"
+          ],
+          "CASCADE",
+          null,
+          false,
+          null,
+          null
+        ]
+      ],
+      "indexes": {
+        "idx_inhibitions_loser": [
+          false,
+          [
+            [
+              "atom",
+              "loser_trace_id"
+            ],
+            [
+              "atom",
+              "winner_trace_id"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "id": [
+          "call",
+          "gen_random_uuid",
+          []
+        ],
+        "loser_trace_id": null,
+        "strength": [
+          "numeric constant",
+          "0.1"
+        ],
+        "suppressed_until": null,
+        "winner_trace_id": null
+      },
+      "unique": [
+        [
+          [
+            "winner_trace_id",
+            "loser_trace_id"
+          ],
+          false
+        ]
+      ]
+    },
+    "user_profile": {
+      "checks": [],
+      "columns": {
+        "category": [
+          "VARCHAR",
+          false
+        ],
+        "created_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "id": [
+          "UUID",
+          false
+        ],
+        "key": [
+          "VARCHAR",
+          false
+        ],
+        "notes": [
+          "TEXT",
+          true
+        ],
+        "priority": [
+          "INTEGER",
+          false
+        ],
+        "updated_at": [
+          "TIMESTAMP WITH TIME ZONE",
+          false
+        ],
+        "user_id": [
+          "VARCHAR",
+          false
+        ],
+        "value": [
+          "JSONB",
+          false
+        ]
+      },
+      "foreign_keys": [],
+      "indexes": {
+        "idx_user_profile_category": [
+          false,
+          [
+            [
+              "atom",
+              "user_id"
+            ],
+            [
+              "atom",
+              "category"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ],
+        "idx_user_profile_priority": [
+          false,
+          [
+            [
+              "atom",
+              "user_id"
+            ],
+            [
+              "atom",
+              "priority"
+            ]
+          ],
+          null,
+          "btree",
+          [],
+          [],
+          [],
+          null
+        ]
+      },
+      "primary_key": [
+        "id"
+      ],
+      "server_defaults": {
+        "category": null,
+        "created_at": [
+          "call",
+          "now",
+          []
+        ],
+        "id": null,
+        "key": null,
+        "notes": null,
+        "priority": null,
+        "updated_at": [
+          "call",
+          "now",
+          []
+        ],
+        "user_id": null,
+        "value": null
+      },
+      "unique": []
+    }
+  }
+}
