@@ -1,90 +1,131 @@
 # Recoleva
 
-A Python cognitive memory SDK with host-owned inference, history, storage and policy.
-Distribution `recoleva`, version 0.3.0, API v2; import `kai_memory`.
-The import namespace is retained for application compatibility.
+**Human-inspired memory for AI agents.**
 
-Install the wheel from the [versioned release](https://github.com/dimabalony/recoleva/releases/tag/v0.3.0):
+Recoleva is a Python SDK that extracts memories from conversations, stores them in
+PostgreSQL, and recalls context for later turns. Its design combines semantic
+retrieval, recency, access history and consolidation. Your application supplies
+the models, conversation history and access policy.
+
+- **Remember across conversations.** Extract facts and entities into persistent
+  memory, with a stored cursor to resume extraction.
+- **Recall context for a turn.** Rank memories using semantic similarity, entity
+  connections, recency and prior access.
+- **Choose what counts as used.** Commit recalled context after delivery, or
+  discard a preview without recording an access.
+- **Maintain memory over time.** Run consolidation through the same client, with
+  APIs for procedural rules, execution evidence and outcomes.
+- **Keep control of your stack.** Supply inference and embedding adapters, own
+  your PostgreSQL database, and configure identity, model roles and permissions.
+
+## Install
+
+Requires Python 3.13+, PostgreSQL with pgvector, and an embedder that returns
+1536-dimensional vectors. The demo below uses PostgreSQL 15.
 
 ```sh
 python -m pip install "recoleva @ https://github.com/dimabalony/recoleva/releases/download/v0.3.0/recoleva-0.3.0-py3-none-any.whl"
 ```
 
-For a verified pin, append `#sha256=<wheel_sha256>` from that release's
-`release.json` to the URL. Releases include the sdist, SHA256SUMS and test receipts.
-A source checkout can be installed with `pip install .`.
+The [v0.3.0 release](https://github.com/dimabalony/recoleva/releases/tag/v0.3.0)
+includes the wheel, source distribution, checksums and verification receipts.
 
-Python 3.13+; PostgreSQL 15 with pgvector; 1536-dimensional embeddings.
-Install the tested dependency profile with `python -m pip install -r requirements-test.txt`.
-Run the complete exported unit suite with `python -m pytest`.
-The SDK excludes comparative evaluation and provider runners.
-Run the independent PostgreSQL contract suite against a disposable local server:
-`MEMORY_SDK_TEST_DATABASE_URL=postgresql+asyncpg://postgres@127.0.0.1:5432/postgres python -m pytest tests/postgres`.
-The suite creates and drops a unique database for each case. An unset URL skips
-storage tests and does not qualify persistence. Python 3.13 and PostgreSQL 15 with
-pgvector are the rehearsal baseline. Runtime dependency ranges are not a claim
-that all permitted versions were tested.
+## Try it locally
 
-The supported API is `MemoryClient`, `HostAdapters`, `Chat` and their public
-contract types, plus `kai_memory.storage` composition and disposable bootstrap.
-Internal modules are not stable application entry points.
+Run the included **synthetic demo** against a fresh PostgreSQL database. It uses
+scripted inference and token-hash embeddings, so no model account or API key is
+needed. It records a conversation, extracts a fact, recalls it, commits the
+access, runs consolidation, and reopens the client against the same database
+and history.
 
-```python
-from kai_memory import MemoryClient, HostAdapters, Chat
+With Python 3.13 and Docker installed:
 
-async def preview(adapters: HostAdapters, chat: Chat):
-    async with MemoryClient(adapters) as memory:
-        recognition = await memory.recall("What do we know?", chat)
-        context = recognition.primed.priming_context
-        recognition.discard()  # Preview only; no access learning.
-        return context
+```sh
+git clone https://github.com/dimabalony/recoleva.git
+cd recoleva
+python3.13 -m venv .venv
+. .venv/bin/activate
+python -m pip install "recoleva @ https://github.com/dimabalony/recoleva/releases/download/v0.3.0/recoleva-0.3.0-py3-none-any.whl"
+
+docker run --detach --rm --name recoleva-demo \
+  -e POSTGRES_PASSWORD=demo \
+  -p 127.0.0.1:55432:5432 pgvector/pgvector:pg15
+until docker exec recoleva-demo pg_isready -h 127.0.0.1 -U postgres >/dev/null 2>&1; do
+  sleep 1
+done
+docker exec recoleva-demo createdb -U postgres recoleva_demo
+
+python -I examples/standalone_host.py lifecycle \
+  --db-url postgresql+asyncpg://postgres:demo@127.0.0.1:55432/recoleva_demo
 ```
 
-Create one application-owned client per store and reuse it across operations.
-For a delivered turn, call `recognition.commit()` after using its context;
-discard unused or rejected context. `begin_turn` supports staged delivery and
-read-only mid-turn recall. `record_message` writes through the history port,
-`extract` captures memory, and `consolidate` performs maintenance. The context
-manager calls `close`, which finishes/drains or cancels owned work; it does not
-transfer ownership of the application's engine or history.
+The command validates the lifecycle and prints a JSON report. Selected fields:
 
-`HostAdapters` requires inference, embedder, history and session_factory ports;
-provide the scrub_secrets, validate_skill_content and redact_urls_for_trace
-hygiene callbacks through `overrides`. Hosts own their async engine/sessions,
-canonical conversation history, clock, settings and authorization. Telemetry
-is optional and defaults to no output. `AgentIdentity` configures the host's
-identity; `ModelRoles` selects extraction, consolidation, artifact and auxiliary
-models for its inference adapter. No inference vendor is required by the SDK.
-Embedders return one nonzero 1536-dimensional vector per input; storage fixes
-this dimension and rejects incompatible vectors before persistence.
+```json
+{
+  "trace_contents": ["Pat Example works as a pharmacist at Example Co"],
+  "recognition": {"context_mentions_fact": true},
+  "after_restart": {"messages_read": 0}
+}
+```
 
-`HostPolicy` supplies is_admin, integer respect (0..100), may_read and may_write.
-The default NeutralHostPolicy permits the host-owned chat scopes but grants no
-teaching authority. Chat IDs do not authorize tenants; multi-tenant applications
-must implement those policy checks. See `examples/standalone_host.py` for a
-complete synthetic host and executable lifecycle/recovery examples.
+Remove the demo container and its disposable database when finished:
 
-Clients on separate stores are supported. Shared-store concurrent writers and
-process-kill durability remain unqualified; reopen proof retains host history.
-`storage.bootstrap_disposable` is for fresh stores and refuses populated ones.
-Production schema migration, backup and previous-version rollback belong to the
-application. Rehearse upgrades with `examples/storage_upgrade.py`; these examples
-grant no production access. Procedural reinforcement supports 1,000 eligible
-rules/habits and refuses the 1,001st before partial writes.
+```sh
+docker rm -f recoleva-demo
+```
 
-This repository is the canonical SDK source. General evaluation, private host
-configuration, transcripts and production fixtures are outside this distribution.
-The SDK tests include authored synthetic examples and reviewed generic test
-adaptations; they demonstrate contracts, not real-model answer quality, learning
-efficacy or human-equivalent memory. No provider calls are needed for CI.
+See [the complete demo](examples/standalone_host.py) for adapter implementations
+and additional lifecycle, recovery and retention scenarios.
 
-`EXPORT_PROVENANCE.json` preserves the initial private-candidate export receipt;
-its historical publication status is not current release metadata.
-`BOOTSTRAP_PROVENANCE.json` records the public distribution and license.
-Release evidence records public source revision, artifact hashes, installed
-payload hashes, executed test counts and scenario checksums.
+## Connect your agent
 
-Licensed under GPL-3.0-or-later; see LICENSE and THIRD_PARTY_NOTICES.md.
-Dependencies retain their own licenses, including Unidecode's GPL-2.0-or-later.
-Runtime requirements are ranges, not a reproducible lock; release evidence
-records the versions installed for proof. See CONTRIBUTING.md and SECURITY.md.
+```mermaid
+flowchart LR
+    App[Your application] --> Memory[Recoleva]
+    Memory --> Models[Your inference and embedding adapters]
+    Memory --> History[Your conversation history]
+    Memory --> Store[Your PostgreSQL + pgvector database]
+```
+
+Create a `MemoryClient` with `HostAdapters`: inference, embedder, history and an
+async SQLAlchemy session factory. Supply the `scrub_secrets`,
+`validate_skill_content` and `redact_urls_for_trace` callbacks through `overrides`,
+and use `HostPolicy` to define read, write and teaching permissions.
+
+Reuse one client per store. `record_message()` writes to your history adapter;
+`extract()` reads that history into memory. Before generating a response, recall
+context and settle it after your application delivers the answer:
+
+```python
+from kai_memory import Chat, MemoryClient
+
+
+async def answer(memory: MemoryClient, chat: Chat, question: str, deliver):
+    """deliver(question, context) generates and delivers your application's reply."""
+    recognition = await memory.recall(question, chat)
+    try:
+        reply = await deliver(question, recognition.primed.priming_context or "")
+    except BaseException:
+        recognition.discard()
+        raise
+    recognition.commit()
+    return reply
+```
+
+For previews, call `discard()` after inspecting the context. `begin_turn()` adds
+staged delivery and recall within a turn. `consolidate()` runs maintenance. Close
+the client with `await memory.close()` or an async context manager to drain its
+work; your application manages its database engine and history lifecycle.
+
+## Explore
+
+- [Public API and adapter contracts](src/kai_memory/sdk.py)
+- [Storage upgrade example](examples/storage_upgrade.py)
+- [Tests and verification](CONTRIBUTING.md) · [CI workflow](.github/workflows/test.yml)
+- [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+
+## License
+
+[GPL-3.0-or-later](LICENSE). See [third-party notices](THIRD_PARTY_NOTICES.md) for
+dependency licenses and attribution.
